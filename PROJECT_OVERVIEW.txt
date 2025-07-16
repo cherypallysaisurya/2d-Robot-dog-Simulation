@@ -1,0 +1,632 @@
+================================================================================
+                    2D ROBOT SIMULATION FRAMEWORK - COMPLETE OVERVIEW
+================================================================================
+
+PROJECT STRUCTURE:
+==================
+
+Robot-behavior/
+├── robot_behavior/           # Main package
+│   ├── core/                # Core robot logic
+│   │   ├── __init__.py
+│   │   └── robot.py         # Robot class (position, movement, direction)
+│   ├── simulator/           # Visual display
+│   │   ├── __init__.py
+│   │   └── simulator.py     # Tkinter GUI (grid, robot drawing)
+│   ├── behaviors/           # Robot behaviors & student API
+│   │   ├── __init__.py
+│   │   ├── basic.py         # Basic behaviors (spiral, square, prime)
+│   │   └── api.py           # Student-friendly functions
+│   └── __init__.py
+├── examples/
+│   └── student_example.py   # Entry point - what students run
+├── setup.py                 # Package installation
+├── README.md
+└── robot_movement.log       # Generated log file
+
+================================================================================
+                                  FILE CONTENTS
+================================================================================
+
+1. SETUP.PY
+===========
+
+from setuptools import setup, find_packages
+
+setup(
+    name="robot_behavior",
+    version="0.1.0",
+    packages=find_packages(),
+    install_requires=[
+        "numpy",
+    ],
+    author="Your Name",
+    author_email="your.email@example.com",
+    description="A 2D robot simulation framework for educational purposes",
+    long_description=open("README.md").read(),
+    long_description_content_type="text/markdown",
+    python_requires=">=3.7",
+)
+
+================================================================================
+
+2. ROBOT_BEHAVIOR/CORE/ROBOT.PY
+================================
+
+from dataclasses import dataclass
+from typing import List, Tuple
+import logging
+from enum import Enum
+import time
+
+class Direction(Enum):
+    NORTH = 0
+    EAST = 1
+    SOUTH = 2
+    WEST = 3
+
+@dataclass
+class Position:
+    x: int
+    y: int
+
+class Robot:
+    def __init__(self, x: int = 0, y: int = 0, direction: Direction = Direction.NORTH, simulator=None):
+        self.position = Position(x, y)
+        self.direction = direction
+        self.movement_log = []
+        self.simulator = simulator  # Reference to simulator for wall info
+        logging.basicConfig(
+            filename='robot_movement.log',
+            level=logging.INFO,
+            format='%(asctime)s - %(message)s'
+        )
+    
+    def move_forward(self) -> bool:
+        """Move the robot one step forward in its current direction."""
+        new_pos = Position(self.position.x, self.position.y)
+        
+        if self.direction == Direction.NORTH:
+            new_pos.y += 1
+        elif self.direction == Direction.EAST:
+            new_pos.x += 1
+        elif self.direction == Direction.SOUTH:
+            new_pos.y -= 1
+        elif self.direction == Direction.WEST:
+            new_pos.x -= 1
+            
+        if self._is_valid_position(new_pos):
+            self.position = new_pos
+            self._log_movement("MOVE_FORWARD")
+            if self.simulator:
+                self.simulator.update()
+            return True
+        else:
+            # Hit a wall or boundary - log and turn (no recursive move)
+            msg = f"Hit wall at ({new_pos.x}, {new_pos.y}) → Took diversion"
+            logging.info(msg)
+            self.movement_log.append((time.time(), msg, self.position, self.direction))
+            print(msg)
+            self.turn_right()  # Turn right when hitting obstacle
+            return False
+    
+    def turn_left(self):
+        """Turn the robot 90 degrees to the left."""
+        self.direction = Direction((self.direction.value - 1) % 4)
+        self._log_movement("TURN_LEFT")
+        if self.simulator:
+            self.simulator.update()
+    
+    def turn_right(self):
+        """Turn the robot 90 degrees to the right."""
+        self.direction = Direction((self.direction.value + 1) % 4)
+        self._log_movement("TURN_RIGHT")
+        if self.simulator:
+            self.simulator.update()
+    
+    def _is_valid_position(self, pos: Position) -> bool:
+        """Check if the given position is valid (no walls/obstacles)."""
+        if self.simulator and (pos.x, pos.y) in self.simulator.walls:
+            return False
+        if pos.x < 0 or pos.x >= (self.simulator.width if self.simulator else 10):
+            return False
+        if pos.y < 0 or pos.y >= (self.simulator.height if self.simulator else 10):
+            return False
+        return True
+    
+    def _log_movement(self, action: str):
+        """Log robot movements with timestamp."""
+        message = f"Robot {action} - Position: ({self.position.x}, {self.position.y}), Direction: {self.direction.name}"
+        logging.info(message)
+        self.movement_log.append((time.time(), action, self.position, self.direction))
+    
+    def get_position(self) -> Tuple[int, int]:
+        """Return the current position of the robot."""
+        return (self.position.x, self.position.y)
+    
+    def get_direction(self) -> Direction:
+        """Return the current direction of the robot."""
+        return self.direction
+
+================================================================================
+
+3. ROBOT_BEHAVIOR/SIMULATOR/SIMULATOR.PY
+=========================================
+
+import tkinter as tk
+from ..core.robot import Robot, Direction
+from typing import List, Tuple
+import time
+
+class RobotSimulator:
+    def __init__(self, width: int = 10, height: int = 10, cell_size: int = 50):
+        self.width = width
+        self.height = height
+        self.cell_size = cell_size
+        self.walls: List[Tuple[int, int]] = []
+        self.robot = Robot(simulator=self)  # Pass simulator reference
+        
+        # Create main window
+        self.root = tk.Tk()
+        self.root.title("Robot Behavior Simulator")
+        
+        # Create canvas
+        canvas_width = width * cell_size
+        canvas_height = height * cell_size
+        self.canvas = tk.Canvas(self.root, width=canvas_width, height=canvas_height)
+        self.canvas.pack()
+        
+        # Draw grid
+        self._draw_grid()
+        
+        # Initial robot drawing
+        self._draw_robot()
+    
+    def _draw_grid(self):
+        """Draw the grid on the canvas."""
+        for i in range(self.width + 1):
+            x = i * self.cell_size
+            self.canvas.create_line(x, 0, x, self.height * self.cell_size)
+            
+        for i in range(self.height + 1):
+            y = i * self.cell_size
+            self.canvas.create_line(0, y, self.width * self.cell_size, y)
+    
+    def _draw_robot(self):
+        """Draw the robot on the canvas."""
+        x, y = self.robot.get_position()
+        direction = self.robot.get_direction()
+        
+        # Calculate center of cell
+        center_x = (x + 0.5) * self.cell_size
+        center_y = ((self.height - 1 - y) + 0.5) * self.cell_size
+        
+        # Draw robot body
+        body_size = self.cell_size * 0.8
+        self.canvas.delete("robot")  # Remove previous robot drawing
+        
+        # Draw robot as a triangle pointing in the current direction
+        if direction == Direction.NORTH:
+            points = [
+                center_x, center_y - body_size/2,
+                center_x - body_size/2, center_y + body_size/2,
+                center_x + body_size/2, center_y + body_size/2
+            ]
+        elif direction == Direction.EAST:
+            points = [
+                center_x + body_size/2, center_y,
+                center_x - body_size/2, center_y - body_size/2,
+                center_x - body_size/2, center_y + body_size/2
+            ]
+        elif direction == Direction.SOUTH:
+            points = [
+                center_x, center_y + body_size/2,
+                center_x - body_size/2, center_y - body_size/2,
+                center_x + body_size/2, center_y - body_size/2
+            ]
+        else:  # WEST
+            points = [
+                center_x - body_size/2, center_y,
+                center_x + body_size/2, center_y - body_size/2,
+                center_x + body_size/2, center_y + body_size/2
+            ]
+            
+        self.canvas.create_polygon(points, fill="blue", tags="robot")
+    
+    def add_wall(self, x: int, y: int):
+        """Add a wall at the specified coordinates."""
+        self.walls.append((x, y))
+        cell_x = x * self.cell_size
+        cell_y = (self.height - 1 - y) * self.cell_size
+        self.canvas.create_rectangle(
+            cell_x, cell_y,
+            cell_x + self.cell_size,
+            cell_y + self.cell_size,
+            fill="gray"
+        )
+
+    def update(self):
+        """Update the display."""
+        self._draw_robot()
+        self.root.update()
+        time.sleep(0.3)  # Slightly faster for better visual feedback
+
+    def run(self):
+        """Start the simulation."""
+        self.root.mainloop()
+
+    def close(self):
+        """Close the simulator window."""
+        self.root.destroy()
+
+================================================================================
+
+4. ROBOT_BEHAVIOR/BEHAVIORS/BASIC.PY
+====================================
+
+from ..core.robot import Robot
+from typing import Callable
+import math
+import logging
+import sys
+
+def is_prime(n: int) -> bool:
+    """Helper function to check if a number is prime."""
+    if n < 2:
+        return False
+    for i in range(2, int(math.sqrt(n)) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def move_if_prime(robot: Robot, n: int):
+    """Move forward if the number is prime. Print/log result for every number."""
+    if is_prime(n):
+        moved = robot.move_forward()
+        msg = f"{n} is prime: robot moved forward."
+    else:
+        moved = False
+        msg = f"{n} is not prime: robot did not move."
+    print(msg)
+    logging.info(msg)
+    # Also log to robot's movement_log for completeness
+    robot.movement_log.append((n, msg, robot.get_position(), robot.get_direction()))
+
+def turn_if_even(robot: Robot, n: int):
+    """Turn right if the number is even, left if odd."""
+    if n % 2 == 0:
+        robot.turn_right()
+    else:
+        robot.turn_left()
+
+def spiral_movement(robot: Robot, steps: int):
+    """Make the robot move in a spiral pattern with visual updates and obstacle avoidance."""
+    for i in range(steps):
+        for _ in range(i + 1):
+            robot.move_forward()
+        robot.turn_right()
+
+def square_movement(robot: Robot, size: int):
+    """Make the robot move in a square pattern with visual updates and obstacle avoidance."""
+    for _ in range(4):
+        for _ in range(size):
+            robot.move_forward()
+        robot.turn_right()
+
+================================================================================
+
+5. ROBOT_BEHAVIOR/BEHAVIORS/API.PY
+==================================
+
+from ..core.robot import Robot
+from ..simulator.simulator import RobotSimulator
+from typing import Callable, Any
+import time
+
+class RobotProgram:
+    def __init__(self, width: int = 10, height: int = 10):
+        """Initialize a new robot program with specified grid size."""
+        self.simulator = RobotSimulator(width, height)
+        self.robot = self.simulator.robot
+    
+    def add_wall(self, x: int, y: int):
+        """Add a wall at the specified position."""
+        self.simulator.add_wall(x, y)
+    
+    def run_behavior(self, behavior: Callable[[Robot, Any], None], *args):
+        """Run a specific behavior function with the robot."""
+        behavior(self.robot, *args)
+    
+    def start(self):
+        """Start the simulation."""
+        self.simulator.run()
+    
+    def stop(self):
+        """Stop the simulation."""
+        try:
+            self.simulator.close()
+        except:
+            pass  # Ignore errors if window already closed
+
+def run_prime_bot(numbers: list[int]):
+    """Run a robot that moves based on prime numbers. Closes window after completion."""
+    from ..behaviors.basic import move_if_prime
+    
+    program = RobotProgram()
+    # Add some walls for obstacles
+    program.add_wall(3, 3)
+    program.add_wall(4, 2)
+    program.add_wall(2, 4)
+    for num in numbers:
+        program.run_behavior(move_if_prime, num)
+    program.simulator.root.after(2000, lambda: program.simulator.close())
+    program.start()
+
+def run_even_odd_bot(numbers: list[int]):
+    """Run a robot that turns based on even/odd numbers. Closes window after completion."""
+    from ..behaviors.basic import turn_if_even
+    
+    program = RobotProgram()
+    # Add walls
+    program.add_wall(2, 1)
+    program.add_wall(3, 2)
+    program.add_wall(1, 3)
+    for num in numbers:
+        program.run_behavior(turn_if_even, num)
+        program.robot.move_forward()
+    program.simulator.root.after(2000, lambda: program.simulator.close())
+    program.start()
+
+def run_spiral_bot(steps: int):
+    """Run a robot that moves in a spiral pattern. Closes window after completion."""
+    from ..behaviors.basic import spiral_movement
+    
+    program = RobotProgram(width=15, height=15)  # Larger grid for spiral
+    # Add walls in spiral path
+    program.add_wall(3, 3)
+    program.add_wall(5, 5)
+    program.add_wall(7, 2)
+    program.run_behavior(spiral_movement, steps)
+    program.simulator.root.after(3000, lambda: program.simulator.close())
+    program.start()
+
+def run_square_bot(size: int):
+    """Run a robot that moves in a square pattern. Closes window after completion."""
+    from ..behaviors.basic import square_movement
+    
+    program = RobotProgram(width=12, height=12)  # Larger grid for square
+    # Add walls in square path
+    program.add_wall(2, 2)
+    program.add_wall(4, 1)
+    program.add_wall(1, 4)
+    program.run_behavior(square_movement, size)
+    program.simulator.root.after(3000, lambda: program.simulator.close())
+    program.start()
+
+================================================================================
+
+6. EXAMPLES/STUDENT_EXAMPLE.PY
+==============================
+
+from robot_behavior.behaviors.api import (
+    run_prime_bot,
+    run_even_odd_bot,
+    run_spiral_bot,
+    run_square_bot,
+    RobotProgram
+)
+from robot_behavior.behaviors.basic import move_if_prime, turn_if_even
+
+# Example 1: Run a prime number robot
+print("Running prime number robot...")
+run_prime_bot([2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
+
+# Example 2: Run an even/odd turning robot
+print("Running even/odd turning robot...")
+run_even_odd_bot([1, 2, 3, 4, 5])
+
+# Example 3: Run a spiral pattern
+print("Running spiral pattern...")
+run_spiral_bot(4)
+
+# Example 4: Run a square pattern
+print("Running square pattern...")
+run_square_bot(3)
+
+# Example 5: Custom behavior with more movement
+print("Running custom behavior...")
+program = RobotProgram(width=12, height=12)
+
+# Add a maze-like wall pattern
+program.add_wall(2, 2)
+program.add_wall(2, 3)
+program.add_wall(3, 2)
+program.add_wall(4, 4)
+program.add_wall(5, 3)
+program.add_wall(6, 5)
+
+# Custom sequence of movements - create a more complex pattern
+for i in range(8):
+    program.robot.move_forward()
+    if i % 2 == 0:
+        program.robot.turn_right()
+    else:
+        program.robot.turn_left()
+
+# Add some more forward moves
+for _ in range(5):
+    program.robot.move_forward()
+
+# Schedule window close after 4 seconds
+program.simulator.root.after(4000, lambda: program.simulator.close())
+program.start()
+
+================================================================================
+
+7. README.MD
+============
+
+# Robot Behavior Framework
+
+A simple, educational 2D robot simulation framework for learning programming concepts through robot behaviors.
+
+## Features
+
+- Clean, intuitive Python API for controlling robot movements
+- Visual 2D grid-based simulator using Tkinter
+- Built-in behaviors like prime number movement, even/odd turning, and patterns
+- Movement logging for analysis
+- No complex dependencies - just pure Python!
+
+## Installation
+
+1. Clone this repository
+2. Install the package in development mode:
+```bash
+pip install -e .
+```
+
+## Quick Start
+
+Here's a simple example to get started:
+
+```python
+from robot_behavior.behaviors.api import run_prime_bot
+
+# Robot will move forward for prime numbers
+run_prime_bot([2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
+```
+
+## Available Behaviors
+
+1. Prime Number Movement (`run_prime_bot`)
+   - Robot moves forward when it encounters a prime number
+
+2. Even/Odd Turning (`run_even_odd_bot`)
+   - Robot turns right for even numbers and left for odd numbers
+
+3. Pattern Movements
+   - Spiral pattern (`run_spiral_bot`)
+   - Square pattern (`run_square_bot`)
+
+## Creating Custom Behaviors
+
+You can create custom behaviors by using the `RobotProgram` class:
+
+```python
+from robot_behavior.behaviors.api import RobotProgram
+
+program = RobotProgram()
+
+# Add walls/obstacles
+program.add_wall(2, 2)
+
+# Custom movement sequence
+program.robot.move_forward()
+program.robot.turn_right()
+
+program.start()
+```
+
+## Movement Logging
+
+All robot movements are automatically logged to `robot_movement.log` for later analysis.
+
+## Extending the Framework
+
+To add new behaviors:
+
+1. Create a new function in `behaviors/basic.py` or a new file
+2. Add a wrapper function in `behaviors/api.py` if needed
+3. Use the new behavior in your code!
+
+## Examples
+
+Check the `examples` directory for more sample code and usage patterns.
+
+================================================================================
+                               CONTROL FLOW DIAGRAM
+================================================================================
+
+User runs: python examples/student_example.py
+    ↓
+Calls: run_prime_bot([2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
+    ↓
+api.py creates: RobotProgram() → RobotSimulator() → Robot()
+    ↓
+For each number in list:
+    ↓
+Calls: move_if_prime(robot, number) in basic.py
+    ↓
+If prime: robot.move_forward() in robot.py
+    ↓
+robot.py checks: _is_valid_position() for walls/boundaries
+    ↓
+If valid: Update position, call simulator.update()
+    ↓
+simulator.py: _draw_robot() updates Tkinter canvas
+    ↓
+User sees: Robot moves on screen
+    ↓
+After all numbers processed: Window auto-closes after 2 seconds
+
+================================================================================
+                               KEY COMPONENTS
+================================================================================
+
+ROBOT CLASS (robot.py):
+- Stores position (x, y) and direction (North/East/South/West)
+- move_forward(): Move one step in current direction
+- turn_left()/turn_right(): Rotate 90 degrees
+- _is_valid_position(): Check for walls and boundaries
+- _log_movement(): Record all actions to log file
+
+SIMULATOR CLASS (simulator.py):
+- Creates Tkinter window and canvas
+- _draw_grid(): Draw grid lines
+- _draw_robot(): Draw blue triangle representing robot
+- add_wall(): Add gray squares as obstacles
+- update(): Refresh display after robot moves
+
+BEHAVIORS (basic.py):
+- move_if_prime(): Move if number is prime
+- turn_if_even(): Turn based on even/odd
+- spiral_movement(): Move in expanding spiral
+- square_movement(): Move in square pattern
+
+API LAYER (api.py):
+- RobotProgram: Sets up robot + simulator + walls
+- run_*_bot(): Easy functions for students to call
+- Handles window management and auto-close
+
+================================================================================
+                           HOW TO EXTEND THE SYSTEM
+================================================================================
+
+ADD NEW BEHAVIOR:
+1. Create function in basic.py:
+   def fibonacci_movement(robot: Robot, steps: int):
+       # Your logic here
+       
+2. Add wrapper in api.py:
+   def run_fibonacci_bot(steps: int):
+       program = RobotProgram()
+       fibonacci_movement(program.robot, steps)
+       program.start()
+
+CHANGE VISUALS:
+- simulator.py: Change colors, shapes, sizes
+- _draw_robot(): Modify robot appearance
+- add_wall(): Change wall colors
+
+ADD LOGGING:
+- robot.py: _log_movement() function
+- Add more details to log messages
+
+CHANGE ROBOT LOGIC:
+- robot.py: Modify movement rules
+- Add new movement types (diagonal, jump, etc.)
+
+================================================================================
+                                  END OF FILE
+================================================================================
