@@ -6,6 +6,11 @@ from .behaviors.api import (
     run_even_odd_bot, 
     run_spiral_bot,
     run_square_bot,
+    run_random_prime_bot,
+    run_random_explorer,
+    run_center_prime_bot,
+    run_center_even_odd_bot,
+    run_center_spiral_bot,
     RobotProgram
 )
 
