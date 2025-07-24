@@ -18,13 +18,12 @@ def move_if_prime(robot: Robot, n: int):
     """Move forward if the number is prime. Print/log result for every number."""
     if is_prime(n):
         moved = robot.move_forward()
-        msg = f"{n} is prime: robot moved forward."
+        msg = f"{n} is prime: moved forward."
         # Add small delay to let animation complete
         time.sleep(0.5)  # Wait for smooth animation
     else:
         moved = False
-        msg = f"{n} is not prime: robot did not move."
-    print(msg)
+        msg = f"{n} is not prime: stayed in place."
     logging.info(msg)
     # Also log to robot's movement_log for completeness
     robot.movement_log.append((n, msg, robot.get_position(), robot.get_direction()))
@@ -33,10 +32,8 @@ def turn_if_even(robot: Robot, n: int):
     """Turn right if the number is even, left if odd."""
     if n % 2 == 0:
         robot.turn_right()
-        print(f"{n} is even: robot turned right.")
     else:
         robot.turn_left()
-        print(f"{n} is odd: robot turned left.")
 
 def spiral_movement(robot: Robot, steps: int):
     """Make the robot move in a spiral pattern with visual updates and obstacle avoidance."""
@@ -47,7 +44,6 @@ def spiral_movement(robot: Robot, steps: int):
             time.sleep(0.1)  # Small pause between moves for better visibility
         # Turn right to continue spiral
         robot.turn_right()
-        print(f"Spiral layer {i+1} completed - turned right")
 
 def square_movement(robot: Robot, size: int):
     """Make the robot move in a square pattern with visual updates and obstacle avoidance."""
@@ -58,4 +54,3 @@ def square_movement(robot: Robot, size: int):
             time.sleep(0.1)  # Small pause between moves
         # Turn right to next side
         robot.turn_right()
-        print(f"Square side {side+1} completed - turned right")

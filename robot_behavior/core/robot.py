@@ -3,7 +3,6 @@ from typing import List, Tuple
 import logging
 from enum import Enum
 import time
-import random
 
 class Direction(Enum):
     NORTH = 0
@@ -15,27 +14,9 @@ class Direction(Enum):
 class Position:
     x: int
     y: int
-    
-    def __hash__(self):
-        return hash((self.x, self.y))
 
 class Robot:
-    def __init__(self, x: int = None, y: int = None, direction: Direction = None, simulator=None, random_start: bool = False):
-        # Handle random starting position and direction
-        if random_start and simulator:
-            # Random starting position (avoid walls)
-            max_attempts = 50
-            for _ in range(max_attempts):
-                rand_x = random.randint(1, simulator.width - 2)
-                rand_y = random.randint(1, simulator.height - 2)
-                if (rand_x, rand_y) not in simulator.walls:
-                    x, y = rand_x, rand_y
-                    break
-            
-            # Random starting direction
-            if direction is None:
-                direction = random.choice(list(Direction))
-        
+    def __init__(self, x: int = None, y: int = None, direction: Direction = Direction.NORTH, simulator=None):
         # If no position specified, start from center of grid
         if x is None or y is None:
             grid_size = 10  # Default grid size
@@ -46,11 +27,9 @@ class Robot:
         else:
             self.position = Position(x, y)
             
-        self.direction = direction if direction is not None else Direction.NORTH
+        self.direction = direction
         self.movement_log = []
         self.simulator = simulator  # Reference to simulator for wall info
-        
-        print(f"🤖 Robot spawned at ({self.position.x}, {self.position.y}) facing {self.direction.name}")
         
         logging.basicConfig(
             filename='robot_movement.log',
@@ -72,11 +51,10 @@ class Robot:
             new_pos.x -= 1
             
         if self._is_valid_position(new_pos):
-            # Simple movement - update position and redraw
             self.position = new_pos
-            if self.simulator:
-                self.simulator.update()  # Simple redraw without animation
             self._log_movement("MOVE_FORWARD")
+            if self.simulator:
+                self.simulator.update()
             return True
         else:
             # Hit a wall or boundary - log and turn (no recursive move)
@@ -92,14 +70,14 @@ class Robot:
         self.direction = Direction((self.direction.value - 1) % 4)
         self._log_movement("TURN_LEFT")
         if self.simulator:
-            self.simulator.update()  # Simple update for rotations
+            self.simulator.update()
     
     def turn_right(self):
         """Turn the robot 90 degrees to the right."""
         self.direction = Direction((self.direction.value + 1) % 4)
         self._log_movement("TURN_RIGHT")
         if self.simulator:
-            self.simulator.update()  # Simple update for rotations
+            self.simulator.update()
     
     def _is_valid_position(self, pos: Position) -> bool:
         """Check if the given position is valid (no walls/obstacles)."""

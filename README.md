@@ -17,12 +17,30 @@ run_prime_bot([2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
 - 📝 **Well-documented** - Clear examples and templates
 - 🌐 **Cross-platform** - Works on Windows, Mac, Linux
 - 🔧 **Extensible** - Easy to add new behaviors
+- 🎲 **Randomization** - Random start positions and wall patterns
+- 🏗️ **Custom Walls** - Students can design their own obstacle patterns
 
 ## 🚀 Quick Start
 
-### Installation
+### For Students - Try These Examples:
 ```bash
-pip install git+https://github.com/your-username/robot-behavior.git
+# Clone or download the project
+git clone https://github.com/cherypallysaisurya/2d-Robot-dog-Simulation.git
+cd 2d-Robot-dog-Simulation
+
+# Run the main example to see all robots in action
+python examples/student_example.py
+
+# Try the template for creating your own robots
+python examples/student_template.py
+
+# Advanced: Custom wall patterns
+python examples/custom_walls_example.py
+```
+
+### For Programmers - Use as Library:
+```bash
+pip install git+https://github.com/cherypallysaisurya/2d-Robot-dog-Simulation.git
 ```
 
 ### Use It

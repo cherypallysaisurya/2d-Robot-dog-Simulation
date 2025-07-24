@@ -1,259 +1,625 @@
-2025-07-17 01:03:51,733 - Robot MOVE_FORWARD - Position: (5, 6), Direction: NORTH
-2025-07-17 01:03:52,055 - 2 is prime: robot moved forward.
-2025-07-17 01:03:52,055 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
-2025-07-17 01:03:52,312 - 3 is prime: robot moved forward.
-2025-07-17 01:03:52,313 - Robot MOVE_FORWARD - Position: (5, 8), Direction: NORTH
-2025-07-17 01:03:52,569 - 5 is prime: robot moved forward.
-2025-07-17 01:11:21,620 - Robot MOVE_FORWARD - Position: (5, 6), Direction: NORTH
-2025-07-17 01:11:21,977 - 2 is prime: robot moved forward.
-2025-07-17 01:11:21,978 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
-2025-07-17 01:11:22,231 - 3 is prime: robot moved forward.
-2025-07-17 01:11:22,238 - Robot MOVE_FORWARD - Position: (5, 8), Direction: NORTH
-2025-07-17 01:11:22,493 - 5 is prime: robot moved forward.
-2025-07-17 01:11:22,493 - Robot MOVE_FORWARD - Position: (5, 9), Direction: NORTH
-2025-07-17 01:11:22,747 - 7 is prime: robot moved forward.
-2025-07-17 01:12:38,401 - Robot MOVE_FORWARD - Position: (5, 6), Direction: NORTH
-2025-07-17 01:12:38,741 - 2 is prime: robot moved forward.
-2025-07-17 01:12:38,741 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
-2025-07-17 01:12:38,996 - 3 is prime: robot moved forward.
-2025-07-17 01:12:38,997 - 6 is not prime: robot did not move.
-2025-07-17 01:12:38,998 - 9 is not prime: robot did not move.
-2025-07-17 01:25:14,887 - Robot MOVE_FORWARD - Position: (5, 6), Direction: NORTH
-2025-07-17 01:25:16,201 - Robot TURN_RIGHT - Position: (5, 6), Direction: EAST
-2025-07-17 01:25:16,813 - Robot MOVE_FORWARD - Position: (6, 6), Direction: EAST
-2025-07-17 01:25:18,067 - Robot TURN_RIGHT - Position: (6, 6), Direction: SOUTH
-2025-07-17 01:25:18,673 - Robot MOVE_FORWARD - Position: (6, 5), Direction: SOUTH
-2025-07-17 01:25:19,925 - Robot TURN_RIGHT - Position: (6, 5), Direction: WEST
-2025-07-17 01:25:20,527 - Robot MOVE_FORWARD - Position: (5, 5), Direction: WEST
-2025-07-17 01:25:21,782 - Robot TURN_RIGHT - Position: (5, 5), Direction: NORTH
-2025-07-17 01:25:23,188 - Robot TURN_RIGHT - Position: (5, 5), Direction: EAST
-2025-07-17 01:25:24,594 - Robot TURN_RIGHT - Position: (5, 5), Direction: SOUTH
-2025-07-17 01:25:25,997 - Robot TURN_RIGHT - Position: (5, 5), Direction: WEST
-2025-07-17 01:30:48,854 - Robot MOVE_FORWARD - Position: (5, 6), Direction: NORTH
-2025-07-17 01:30:48,856 - 2 is prime: robot moved forward.
-2025-07-17 01:30:48,856 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
-2025-07-17 01:30:48,857 - 3 is prime: robot moved forward.
-2025-07-17 01:30:48,858 - Robot MOVE_FORWARD - Position: (5, 8), Direction: NORTH
-2025-07-17 01:30:48,860 - 5 is prime: robot moved forward.
-2025-07-17 01:33:53,790 - Robot MOVE_FORWARD - Position: (5, 6), Direction: NORTH
-2025-07-17 01:33:54,592 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
-2025-07-17 01:33:55,393 - Robot TURN_RIGHT - Position: (5, 7), Direction: EAST
-2025-07-17 01:33:56,300 - Robot MOVE_FORWARD - Position: (6, 7), Direction: EAST
-2025-07-17 01:33:57,101 - Robot MOVE_FORWARD - Position: (7, 7), Direction: EAST
-2025-07-17 01:33:57,903 - Robot TURN_LEFT - Position: (7, 7), Direction: NORTH
-2025-07-17 01:33:58,808 - Robot MOVE_FORWARD - Position: (7, 8), Direction: NORTH
-2025-07-17 01:33:59,610 - Robot TURN_LEFT - Position: (7, 8), Direction: WEST
-2025-07-17 01:34:00,516 - Robot MOVE_FORWARD - Position: (6, 8), Direction: WEST
-2025-07-17 01:34:01,318 - Robot MOVE_FORWARD - Position: (5, 8), Direction: WEST
-2025-07-17 01:34:02,119 - Robot TURN_RIGHT - Position: (5, 8), Direction: NORTH
-2025-07-17 01:34:03,026 - Robot MOVE_FORWARD - Position: (5, 9), Direction: NORTH
-2025-07-17 01:34:11,558 - Robot MOVE_FORWARD - Position: (5, 6), Direction: NORTH
-2025-07-17 01:34:11,559 - 2 is prime: robot moved forward.
-2025-07-17 01:34:11,560 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
-2025-07-17 01:34:11,560 - 3 is prime: robot moved forward.
-2025-07-17 01:34:11,560 - Robot MOVE_FORWARD - Position: (5, 8), Direction: NORTH
-2025-07-17 01:34:11,560 - 5 is prime: robot moved forward.
-2025-07-17 01:34:11,560 - Robot MOVE_FORWARD - Position: (5, 9), Direction: NORTH
-2025-07-17 01:34:11,561 - 7 is prime: robot moved forward.
-2025-07-17 01:35:04,861 - Robot MOVE_FORWARD - Position: (5, 6), Direction: NORTH
-2025-07-17 01:35:05,663 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
-2025-07-17 01:35:06,464 - Robot TURN_RIGHT - Position: (5, 7), Direction: EAST
-2025-07-17 01:35:07,369 - Robot MOVE_FORWARD - Position: (6, 7), Direction: EAST
-2025-07-17 01:35:08,170 - Robot MOVE_FORWARD - Position: (7, 7), Direction: EAST
-2025-07-17 01:35:08,972 - Robot TURN_LEFT - Position: (7, 7), Direction: NORTH
-2025-07-17 01:35:09,877 - Robot MOVE_FORWARD - Position: (7, 8), Direction: NORTH
-2025-07-17 01:35:10,679 - Robot TURN_LEFT - Position: (7, 8), Direction: WEST
-2025-07-17 01:35:11,584 - Robot MOVE_FORWARD - Position: (6, 8), Direction: WEST
-2025-07-17 01:35:12,385 - Robot MOVE_FORWARD - Position: (5, 8), Direction: WEST
-2025-07-17 01:35:13,187 - Robot TURN_RIGHT - Position: (5, 8), Direction: NORTH
-2025-07-17 01:35:14,103 - Robot MOVE_FORWARD - Position: (5, 9), Direction: NORTH
-2025-07-17 01:36:48,819 - Robot MOVE_FORWARD - Position: (5, 6), Direction: NORTH
-2025-07-17 01:36:51,822 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
-2025-07-17 01:43:27,707 - Robot MOVE_FORWARD - Position: (5, 6), Direction: NORTH
-2025-07-17 01:43:30,711 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
-2025-07-17 01:44:03,436 - Robot MOVE_FORWARD - Position: (5, 6), Direction: NORTH
-2025-07-17 01:44:04,437 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
-2025-07-17 01:44:05,438 - Robot TURN_RIGHT - Position: (5, 7), Direction: EAST
-2025-07-17 01:44:06,845 - Robot MOVE_FORWARD - Position: (6, 7), Direction: EAST
-2025-07-17 01:44:07,848 - Robot MOVE_FORWARD - Position: (7, 7), Direction: EAST
-2025-07-17 01:44:08,849 - Robot TURN_RIGHT - Position: (7, 7), Direction: SOUTH
-2025-07-17 01:44:10,255 - Robot MOVE_FORWARD - Position: (7, 6), Direction: SOUTH
-2025-07-17 01:44:11,256 - Robot TURN_LEFT - Position: (7, 6), Direction: EAST
-2025-07-17 01:44:12,661 - Robot MOVE_FORWARD - Position: (8, 6), Direction: EAST
-2025-07-17 01:44:53,538 - Robot MOVE_FORWARD - Position: (5, 6), Direction: NORTH
-2025-07-17 01:48:17,547 - Robot MOVE_FORWARD - Position: (5, 6), Direction: NORTH
-2025-07-17 01:48:19,189 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
-2025-07-17 01:59:56,423 - Robot MOVE_FORWARD - Position: (5, 6), Direction: NORTH
-2025-07-17 01:59:57,685 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
-2025-07-17 01:59:58,943 - Robot MOVE_FORWARD - Position: (5, 8), Direction: NORTH
-2025-07-17 01:59:59,946 - Robot TURN_RIGHT - Position: (5, 8), Direction: EAST
-2025-07-17 02:00:01,457 - Robot MOVE_FORWARD - Position: (6, 8), Direction: EAST
-2025-07-17 02:00:18,132 - Robot MOVE_FORWARD - Position: (5, 6), Direction: NORTH
-2025-07-17 02:00:18,634 - 2 is prime: robot moved forward.
-2025-07-17 02:00:18,892 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
-2025-07-17 02:00:19,395 - 3 is prime: robot moved forward.
-2025-07-17 02:00:19,396 - 4 is not prime: robot did not move.
-2025-07-17 02:00:19,653 - Robot MOVE_FORWARD - Position: (5, 8), Direction: NORTH
-2025-07-17 02:00:20,155 - 5 is prime: robot moved forward.
-2025-07-17 02:20:41,075 - Robot MOVE_FORWARD - Position: (9, 4), Direction: EAST
-2025-07-17 02:20:41,576 - 2 is prime: robot moved forward.
-2025-07-17 02:20:41,576 - Hit wall at (10, 4) \u2192 Took diversion
-2025-07-17 02:20:41,579 - Robot TURN_RIGHT - Position: (9, 4), Direction: SOUTH
-2025-07-17 02:20:42,332 - 3 is prime: robot moved forward.
-2025-07-17 02:20:42,334 - 4 is not prime: robot did not move.
-2025-07-17 02:20:42,588 - Robot MOVE_FORWARD - Position: (9, 3), Direction: SOUTH
-2025-07-17 02:20:43,090 - 5 is prime: robot moved forward.
-2025-07-17 02:21:03,702 - Robot MOVE_FORWARD - Position: (7, 4), Direction: WEST
-2025-07-17 02:21:04,003 - Robot TURN_LEFT - Position: (7, 4), Direction: SOUTH
-2025-07-17 02:21:04,811 - Robot MOVE_FORWARD - Position: (7, 3), Direction: SOUTH
-2025-07-17 02:21:05,366 - Robot MOVE_FORWARD - Position: (7, 2), Direction: SOUTH
-2025-07-17 02:21:05,667 - Hit wall at (7, 1) \u2192 Took diversion
-2025-07-17 02:21:05,669 - Robot TURN_RIGHT - Position: (7, 2), Direction: WEST
-2025-07-17 02:21:05,925 - Robot TURN_LEFT - Position: (7, 2), Direction: SOUTH
-2025-07-17 02:21:06,480 - Hit wall at (7, 1) \u2192 Took diversion
-2025-07-17 02:21:06,480 - Robot TURN_RIGHT - Position: (7, 2), Direction: WEST
-2025-07-17 02:21:06,732 - Robot TURN_LEFT - Position: (7, 2), Direction: SOUTH
-2025-07-17 02:21:07,284 - Robot TURN_LEFT - Position: (7, 2), Direction: EAST
-2025-07-17 02:21:08,090 - Robot MOVE_FORWARD - Position: (8, 2), Direction: EAST
-2025-07-17 02:21:08,392 - Robot TURN_LEFT - Position: (8, 2), Direction: NORTH
-2025-07-17 02:21:09,201 - Robot MOVE_FORWARD - Position: (8, 3), Direction: NORTH
-2025-07-17 02:21:21,868 - Robot MOVE_FORWARD - Position: (6, 8), Direction: WEST
-2025-07-17 02:21:22,369 - 2 is prime: robot moved forward.
-2025-07-17 02:21:22,621 - Robot MOVE_FORWARD - Position: (5, 8), Direction: WEST
-2025-07-17 02:21:23,122 - 3 is prime: robot moved forward.
-2025-07-17 02:21:23,374 - Robot MOVE_FORWARD - Position: (4, 8), Direction: WEST
-2025-07-17 02:21:23,875 - 5 is prime: robot moved forward.
-2025-07-17 02:21:24,126 - Robot MOVE_FORWARD - Position: (3, 8), Direction: WEST
-2025-07-17 02:21:24,627 - 7 is prime: robot moved forward.
-2025-07-17 02:21:24,880 - Robot MOVE_FORWARD - Position: (2, 8), Direction: WEST
-2025-07-17 02:21:25,380 - 11 is prime: robot moved forward.
-2025-07-17 02:26:40,377 - Robot MOVE_FORWARD - Position: (6, 5), Direction: SOUTH
-2025-07-17 02:26:40,879 - 2 is prime: robot moved forward.
-2025-07-17 02:26:41,130 - Robot MOVE_FORWARD - Position: (6, 4), Direction: SOUTH
-2025-07-17 02:26:41,631 - 3 is prime: robot moved forward.
-2025-07-17 02:26:41,631 - 4 is not prime: robot did not move.
-2025-07-17 02:26:41,883 - Robot MOVE_FORWARD - Position: (6, 3), Direction: SOUTH
-2025-07-17 02:26:42,384 - 5 is prime: robot moved forward.
-2025-07-17 02:35:06,346 - Robot MOVE_FORWARD - Position: (5, 6), Direction: NORTH
-2025-07-17 02:35:06,848 - 2 is prime: robot moved forward.
-2025-07-17 02:35:07,100 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
-2025-07-17 02:35:07,602 - 3 is prime: robot moved forward.
-2025-07-17 02:35:07,602 - 4 is not prime: robot did not move.
-2025-07-17 02:35:07,853 - Robot MOVE_FORWARD - Position: (5, 8), Direction: NORTH
-2025-07-17 02:35:08,355 - 5 is prime: robot moved forward.
-2025-07-17 02:41:23,244 - Robot MOVE_FORWARD - Position: (6, 4), Direction: SOUTH
-2025-07-17 02:41:23,745 - 2 is prime: robot moved forward.
-2025-07-17 02:41:23,997 - Robot MOVE_FORWARD - Position: (6, 3), Direction: SOUTH
-2025-07-17 02:41:24,498 - 3 is prime: robot moved forward.
-2025-07-17 02:41:24,499 - 4 is not prime: robot did not move.
-2025-07-17 02:41:24,750 - Robot MOVE_FORWARD - Position: (6, 2), Direction: SOUTH
-2025-07-17 02:41:25,251 - 5 is prime: robot moved forward.
-2025-07-17 02:41:25,251 - 6 is not prime: robot did not move.
-2025-07-17 02:41:25,503 - Robot MOVE_FORWARD - Position: (6, 1), Direction: SOUTH
-2025-07-17 02:41:26,007 - 7 is prime: robot moved forward.
-2025-07-17 02:41:31,475 - Robot MOVE_FORWARD - Position: (5, 6), Direction: NORTH
-2025-07-17 02:41:31,976 - 2 is prime: robot moved forward.
-2025-07-17 02:41:32,229 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
-2025-07-17 02:41:32,730 - 3 is prime: robot moved forward.
-2025-07-17 02:41:32,730 - 4 is not prime: robot did not move.
-2025-07-17 02:41:32,982 - Robot MOVE_FORWARD - Position: (5, 8), Direction: NORTH
-2025-07-17 02:41:33,483 - 5 is prime: robot moved forward.
-2025-07-17 02:41:33,483 - 6 is not prime: robot did not move.
-2025-07-17 02:41:33,734 - Robot MOVE_FORWARD - Position: (5, 9), Direction: NORTH
-2025-07-17 02:41:34,235 - 7 is prime: robot moved forward.
-2025-07-17 02:41:39,408 - Robot TURN_LEFT - Position: (4, 3), Direction: NORTH
-2025-07-17 02:41:39,930 - Robot MOVE_FORWARD - Position: (4, 4), Direction: NORTH
-2025-07-17 02:41:39,930 - Robot TURN_RIGHT - Position: (4, 4), Direction: EAST
-2025-07-17 02:41:40,435 - Robot MOVE_FORWARD - Position: (5, 4), Direction: EAST
-2025-07-17 02:41:40,436 - Robot TURN_LEFT - Position: (5, 4), Direction: NORTH
-2025-07-17 02:41:40,944 - Robot MOVE_FORWARD - Position: (5, 5), Direction: NORTH
-2025-07-17 02:41:40,945 - Robot TURN_RIGHT - Position: (5, 5), Direction: EAST
-2025-07-17 02:41:41,450 - Robot MOVE_FORWARD - Position: (6, 5), Direction: EAST
-2025-07-17 02:41:41,451 - Robot TURN_LEFT - Position: (6, 5), Direction: NORTH
-2025-07-17 02:41:41,706 - Hit wall at (6, 6) \u2192 Took diversion
-2025-07-17 02:41:41,711 - Robot TURN_RIGHT - Position: (6, 5), Direction: EAST
-2025-07-17 02:41:41,966 - Robot TURN_RIGHT - Position: (6, 5), Direction: SOUTH
-2025-07-17 02:41:42,477 - Robot MOVE_FORWARD - Position: (6, 4), Direction: SOUTH
-2025-07-17 02:41:47,919 - Robot MOVE_FORWARD - Position: (8, 5), Direction: WEST
-2025-07-17 02:41:48,221 - Robot TURN_RIGHT - Position: (8, 5), Direction: NORTH
-2025-07-17 02:41:48,773 - Robot TURN_RIGHT - Position: (8, 5), Direction: EAST
-2025-07-17 02:41:49,582 - Robot MOVE_FORWARD - Position: (9, 5), Direction: EAST
-2025-07-17 02:41:50,137 - Robot MOVE_FORWARD - Position: (10, 5), Direction: EAST
-2025-07-17 02:41:50,438 - Robot TURN_LEFT - Position: (10, 5), Direction: NORTH
-2025-07-17 02:41:50,995 - Robot TURN_RIGHT - Position: (10, 5), Direction: EAST
-2025-07-17 02:41:51,805 - Robot MOVE_FORWARD - Position: (11, 5), Direction: EAST
-2025-07-17 02:41:52,106 - Hit wall at (12, 5) \u2192 Took diversion
-2025-07-17 02:41:52,108 - Robot TURN_RIGHT - Position: (11, 5), Direction: SOUTH
-2025-07-17 02:41:52,363 - Robot TURN_LEFT - Position: (11, 5), Direction: EAST
-2025-07-17 02:41:52,919 - Hit wall at (12, 5) \u2192 Took diversion
-2025-07-17 02:41:52,920 - Robot TURN_RIGHT - Position: (11, 5), Direction: SOUTH
-2025-07-17 02:41:53,174 - Robot TURN_RIGHT - Position: (11, 5), Direction: WEST
-2025-07-17 02:41:53,985 - Robot MOVE_FORWARD - Position: (10, 5), Direction: WEST
-2025-07-17 02:41:54,286 - Robot TURN_RIGHT - Position: (10, 5), Direction: NORTH
-2025-07-17 02:41:59,250 - Robot MOVE_FORWARD - Position: (8, 4), Direction: NORTH
-2025-07-17 02:41:59,503 - Robot MOVE_FORWARD - Position: (8, 5), Direction: NORTH
-2025-07-17 02:41:59,504 - Robot TURN_RIGHT - Position: (8, 5), Direction: EAST
-2025-07-17 02:42:00,013 - Robot MOVE_FORWARD - Position: (9, 5), Direction: EAST
-2025-07-17 02:42:00,268 - Robot MOVE_FORWARD - Position: (10, 5), Direction: EAST
-2025-07-17 02:42:00,269 - Robot TURN_RIGHT - Position: (10, 5), Direction: SOUTH
-2025-07-17 02:42:04,912 - Robot MOVE_FORWARD - Position: (2, 3), Direction: SOUTH
-2025-07-17 02:42:05,013 - Robot TURN_RIGHT - Position: (2, 3), Direction: WEST
-2025-07-17 02:42:05,518 - Robot MOVE_FORWARD - Position: (1, 3), Direction: WEST
-2025-07-17 02:42:05,871 - Robot MOVE_FORWARD - Position: (0, 3), Direction: WEST
-2025-07-17 02:42:05,972 - Robot TURN_RIGHT - Position: (0, 3), Direction: NORTH
-2025-07-17 02:42:06,481 - Robot MOVE_FORWARD - Position: (0, 4), Direction: NORTH
-2025-07-17 02:42:06,836 - Robot MOVE_FORWARD - Position: (0, 5), Direction: NORTH
-2025-07-17 02:42:07,189 - Robot MOVE_FORWARD - Position: (0, 6), Direction: NORTH
-2025-07-17 02:42:07,289 - Robot TURN_RIGHT - Position: (0, 6), Direction: EAST
-2025-07-17 02:42:07,800 - Robot MOVE_FORWARD - Position: (1, 6), Direction: EAST
-2025-07-17 02:42:08,157 - Robot MOVE_FORWARD - Position: (2, 6), Direction: EAST
-2025-07-17 02:42:08,515 - Robot MOVE_FORWARD - Position: (3, 6), Direction: EAST
-2025-07-17 02:42:08,876 - Robot MOVE_FORWARD - Position: (4, 6), Direction: EAST
-2025-07-17 02:42:08,978 - Robot TURN_RIGHT - Position: (4, 6), Direction: SOUTH
-2025-07-17 02:42:15,654 - Robot MOVE_FORWARD - Position: (5, 6), Direction: NORTH
-2025-07-17 02:42:16,007 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
-2025-07-17 02:42:16,360 - Robot MOVE_FORWARD - Position: (5, 8), Direction: NORTH
-2025-07-17 02:42:16,462 - Robot TURN_RIGHT - Position: (5, 8), Direction: EAST
-2025-07-17 02:42:16,969 - Robot MOVE_FORWARD - Position: (6, 8), Direction: EAST
-2025-07-17 02:42:17,325 - Robot MOVE_FORWARD - Position: (7, 8), Direction: EAST
-2025-07-17 02:42:17,682 - Robot MOVE_FORWARD - Position: (8, 8), Direction: EAST
-2025-07-17 02:42:17,783 - Robot TURN_RIGHT - Position: (8, 8), Direction: SOUTH
-2025-07-17 02:42:18,296 - Robot MOVE_FORWARD - Position: (8, 7), Direction: SOUTH
-2025-07-17 02:42:18,651 - Robot MOVE_FORWARD - Position: (8, 6), Direction: SOUTH
-2025-07-17 02:42:19,012 - Robot MOVE_FORWARD - Position: (8, 5), Direction: SOUTH
-2025-07-17 02:42:19,113 - Robot TURN_RIGHT - Position: (8, 5), Direction: WEST
-2025-07-17 02:42:19,624 - Robot MOVE_FORWARD - Position: (7, 5), Direction: WEST
-2025-07-17 02:42:19,982 - Robot MOVE_FORWARD - Position: (6, 5), Direction: WEST
-2025-07-17 02:42:20,339 - Robot MOVE_FORWARD - Position: (5, 5), Direction: WEST
-2025-07-17 02:42:20,440 - Robot TURN_RIGHT - Position: (5, 5), Direction: NORTH
-2025-07-17 02:42:27,124 - Robot MOVE_FORWARD - Position: (5, 6), Direction: NORTH
-2025-07-17 02:42:27,124 - Robot TURN_RIGHT - Position: (5, 6), Direction: EAST
-2025-07-17 02:42:27,378 - Hit wall at (6, 6) \u2192 Took diversion
-2025-07-17 02:42:27,379 - Robot TURN_RIGHT - Position: (5, 6), Direction: SOUTH
-2025-07-17 02:42:27,634 - Robot TURN_LEFT - Position: (5, 6), Direction: EAST
-2025-07-17 02:42:27,887 - Hit wall at (6, 6) \u2192 Took diversion
-2025-07-17 02:42:27,888 - Robot TURN_RIGHT - Position: (5, 6), Direction: SOUTH
-2025-07-17 02:42:28,397 - Robot MOVE_FORWARD - Position: (5, 5), Direction: SOUTH
-2025-07-17 02:42:28,399 - Robot TURN_RIGHT - Position: (5, 5), Direction: WEST
-2025-07-17 02:42:28,906 - Robot MOVE_FORWARD - Position: (4, 5), Direction: WEST
-2025-07-17 02:42:28,907 - Robot TURN_LEFT - Position: (4, 5), Direction: SOUTH
-2025-07-17 02:42:29,415 - Robot MOVE_FORWARD - Position: (4, 4), Direction: SOUTH
-2025-07-17 02:42:29,670 - Robot MOVE_FORWARD - Position: (4, 3), Direction: SOUTH
-2025-07-17 02:42:29,671 - Robot TURN_RIGHT - Position: (4, 3), Direction: WEST
-2025-07-17 02:42:30,181 - Robot MOVE_FORWARD - Position: (3, 3), Direction: WEST
-2025-07-17 02:42:30,182 - Robot TURN_LEFT - Position: (3, 3), Direction: SOUTH
-2025-07-17 02:42:30,440 - Hit wall at (3, 2) \u2192 Took diversion
-2025-07-17 02:42:30,441 - Robot TURN_RIGHT - Position: (3, 3), Direction: WEST
-2025-07-17 02:42:30,697 - Hit wall at (2, 3) \u2192 Took diversion
-2025-07-17 02:42:30,698 - Robot TURN_RIGHT - Position: (3, 3), Direction: NORTH
-2025-07-17 02:42:30,956 - Robot TURN_RIGHT - Position: (3, 3), Direction: EAST
-2025-07-17 02:42:31,467 - Robot MOVE_FORWARD - Position: (4, 3), Direction: EAST
-2025-07-17 02:42:31,467 - Robot TURN_LEFT - Position: (4, 3), Direction: NORTH
-2025-07-17 02:42:31,976 - Robot MOVE_FORWARD - Position: (4, 4), Direction: NORTH
-2025-07-17 02:42:32,233 - Robot MOVE_FORWARD - Position: (4, 5), Direction: NORTH
-2025-07-17 02:42:32,491 - Robot MOVE_FORWARD - Position: (4, 6), Direction: NORTH
-2025-07-17 02:42:32,748 - Robot MOVE_FORWARD - Position: (4, 7), Direction: NORTH
-2025-07-17 02:42:33,006 - Robot MOVE_FORWARD - Position: (4, 8), Direction: NORTH
-2025-07-17 02:42:33,263 - Robot MOVE_FORWARD - Position: (4, 9), Direction: NORTH
-2025-07-17 02:42:33,265 - Hit wall at (4, 10) \u2192 Took diversion
-2025-07-17 02:42:33,266 - Robot TURN_RIGHT - Position: (4, 9), Direction: EAST
+2025-07-22 20:17:28,170 - Robot MOVE_FORWARD - Position: (6, 7), Direction: NORTH
+2025-07-22 20:17:28,671 - 2 is prime: robot moved forward.
+2025-07-22 20:17:28,931 - Robot MOVE_FORWARD - Position: (6, 8), Direction: NORTH
+2025-07-22 20:17:29,432 - 3 is prime: robot moved forward.
+2025-07-22 20:17:29,433 - 4 is not prime: robot did not move.
+2025-07-22 20:17:29,692 - Robot MOVE_FORWARD - Position: (6, 9), Direction: NORTH
+2025-07-22 20:17:30,194 - 5 is prime: robot moved forward.
+2025-07-22 20:17:30,195 - 6 is not prime: robot did not move.
+2025-07-22 20:17:31,551 - Robot MOVE_FORWARD - Position: (6, 10), Direction: NORTH
+2025-07-22 20:17:32,054 - 7 is prime: robot moved forward.
+2025-07-22 20:17:32,055 - 8 is not prime: robot did not move.
+2025-07-22 20:17:32,057 - 9 is not prime: robot did not move.
+2025-07-22 20:17:32,058 - 10 is not prime: robot did not move.
+2025-07-22 20:17:32,317 - Robot MOVE_FORWARD - Position: (6, 11), Direction: NORTH
+2025-07-22 20:17:32,819 - 11 is prime: robot moved forward.
+2025-07-22 20:17:35,034 - Robot TURN_LEFT - Position: (6, 6), Direction: WEST
+2025-07-22 20:17:35,574 - Robot MOVE_FORWARD - Position: (5, 6), Direction: WEST
+2025-07-22 20:17:35,574 - Robot TURN_RIGHT - Position: (5, 6), Direction: NORTH
+2025-07-22 20:17:36,082 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
+2025-07-22 20:17:36,082 - Robot TURN_LEFT - Position: (5, 7), Direction: WEST
+2025-07-22 20:17:36,590 - Robot MOVE_FORWARD - Position: (4, 7), Direction: WEST
+2025-07-22 20:17:36,591 - Robot TURN_RIGHT - Position: (4, 7), Direction: NORTH
+2025-07-22 20:17:37,097 - Robot MOVE_FORWARD - Position: (4, 8), Direction: NORTH
+2025-07-22 20:17:37,098 - Robot TURN_LEFT - Position: (4, 8), Direction: WEST
+2025-07-22 20:17:38,575 - Robot MOVE_FORWARD - Position: (3, 8), Direction: WEST
+2025-07-22 20:17:38,575 - Robot TURN_RIGHT - Position: (3, 8), Direction: NORTH
+2025-07-22 20:17:39,086 - Robot MOVE_FORWARD - Position: (3, 9), Direction: NORTH
+2025-07-22 20:17:41,560 - Robot MOVE_FORWARD - Position: (6, 7), Direction: NORTH
+2025-07-22 20:17:41,661 - Robot TURN_RIGHT - Position: (6, 7), Direction: EAST
+2025-07-22 20:17:42,167 - Robot MOVE_FORWARD - Position: (7, 7), Direction: EAST
+2025-07-22 20:17:43,616 - Robot MOVE_FORWARD - Position: (8, 7), Direction: EAST
+2025-07-22 20:17:43,717 - Robot TURN_RIGHT - Position: (8, 7), Direction: SOUTH
+2025-07-22 20:17:44,223 - Robot MOVE_FORWARD - Position: (8, 6), Direction: SOUTH
+2025-07-22 20:17:44,577 - Robot MOVE_FORWARD - Position: (8, 5), Direction: SOUTH
+2025-07-22 20:17:44,931 - Robot MOVE_FORWARD - Position: (8, 4), Direction: SOUTH
+2025-07-22 20:17:45,032 - Robot TURN_RIGHT - Position: (8, 4), Direction: WEST
+2025-07-22 20:17:45,536 - Robot MOVE_FORWARD - Position: (7, 4), Direction: WEST
+2025-07-22 20:17:45,889 - Robot MOVE_FORWARD - Position: (6, 4), Direction: WEST
+2025-07-22 20:17:46,246 - Robot MOVE_FORWARD - Position: (5, 4), Direction: WEST
+2025-07-22 20:17:46,600 - Robot MOVE_FORWARD - Position: (4, 4), Direction: WEST
+2025-07-22 20:17:46,701 - Robot TURN_RIGHT - Position: (4, 4), Direction: NORTH
+2025-07-22 20:17:47,205 - Robot MOVE_FORWARD - Position: (4, 5), Direction: NORTH
+2025-07-22 20:17:47,558 - Robot MOVE_FORWARD - Position: (4, 6), Direction: NORTH
+2025-07-22 20:17:47,914 - Robot MOVE_FORWARD - Position: (4, 7), Direction: NORTH
+2025-07-22 20:17:48,267 - Robot MOVE_FORWARD - Position: (4, 8), Direction: NORTH
+2025-07-22 20:17:48,622 - Robot MOVE_FORWARD - Position: (4, 9), Direction: NORTH
+2025-07-22 20:17:48,723 - Robot TURN_RIGHT - Position: (4, 9), Direction: EAST
+2025-07-22 20:17:49,232 - Robot MOVE_FORWARD - Position: (5, 9), Direction: EAST
+2025-07-22 20:17:49,585 - Robot MOVE_FORWARD - Position: (6, 9), Direction: EAST
+2025-07-22 20:17:49,939 - Robot MOVE_FORWARD - Position: (7, 9), Direction: EAST
+2025-07-22 20:17:50,292 - Robot MOVE_FORWARD - Position: (8, 9), Direction: EAST
+2025-07-22 20:17:50,646 - Robot MOVE_FORWARD - Position: (9, 9), Direction: EAST
+2025-07-22 20:17:50,999 - Robot MOVE_FORWARD - Position: (10, 9), Direction: EAST
+2025-07-22 20:17:51,100 - Robot TURN_RIGHT - Position: (10, 9), Direction: SOUTH
+2025-07-22 20:17:54,865 - Robot MOVE_FORWARD - Position: (6, 7), Direction: NORTH
+2025-07-22 20:17:55,224 - Robot MOVE_FORWARD - Position: (6, 8), Direction: NORTH
+2025-07-22 20:17:55,586 - Robot MOVE_FORWARD - Position: (6, 9), Direction: NORTH
+2025-07-22 20:17:55,687 - Robot TURN_RIGHT - Position: (6, 9), Direction: EAST
+2025-07-22 20:17:56,199 - Robot MOVE_FORWARD - Position: (7, 9), Direction: EAST
+2025-07-22 20:17:56,561 - Robot MOVE_FORWARD - Position: (8, 9), Direction: EAST
+2025-07-22 20:17:56,921 - Robot MOVE_FORWARD - Position: (9, 9), Direction: EAST
+2025-07-22 20:17:57,022 - Robot TURN_RIGHT - Position: (9, 9), Direction: SOUTH
+2025-07-22 20:17:58,730 - Robot MOVE_FORWARD - Position: (9, 8), Direction: SOUTH
+2025-07-22 20:17:59,086 - Robot MOVE_FORWARD - Position: (9, 7), Direction: SOUTH
+2025-07-22 20:17:59,443 - Robot MOVE_FORWARD - Position: (9, 6), Direction: SOUTH
+2025-07-22 20:17:59,545 - Robot TURN_RIGHT - Position: (9, 6), Direction: WEST
+2025-07-22 20:18:00,057 - Robot MOVE_FORWARD - Position: (8, 6), Direction: WEST
+2025-07-22 20:18:00,415 - Robot MOVE_FORWARD - Position: (7, 6), Direction: WEST
+2025-07-22 20:18:00,773 - Robot MOVE_FORWARD - Position: (6, 6), Direction: WEST
+2025-07-22 20:18:00,874 - Robot TURN_RIGHT - Position: (6, 6), Direction: NORTH
+2025-07-22 20:18:07,643 - Robot MOVE_FORWARD - Position: (6, 7), Direction: NORTH
+2025-07-22 20:18:08,097 - Robot MOVE_FORWARD - Position: (6, 8), Direction: NORTH
+2025-07-22 20:18:08,550 - Robot MOVE_FORWARD - Position: (6, 9), Direction: NORTH
+2025-07-22 20:18:08,751 - Robot TURN_LEFT - Position: (6, 9), Direction: WEST
+2025-07-22 20:18:09,203 - Robot TURN_RIGHT - Position: (6, 9), Direction: NORTH
+2025-07-22 20:18:09,911 - Robot MOVE_FORWARD - Position: (6, 10), Direction: NORTH
+2025-07-22 20:18:10,365 - Robot MOVE_FORWARD - Position: (6, 11), Direction: NORTH
+2025-07-22 20:18:10,566 - Hit wall at (6, 12) \u2192 Took diversion
+2025-07-22 20:18:10,568 - Robot TURN_RIGHT - Position: (6, 11), Direction: EAST
+2025-07-22 20:18:10,821 - Robot TURN_LEFT - Position: (6, 11), Direction: NORTH
+2025-07-22 20:18:11,274 - Hit wall at (6, 12) \u2192 Took diversion
+2025-07-22 20:18:11,275 - Robot TURN_RIGHT - Position: (6, 11), Direction: EAST
+2025-07-22 20:18:11,526 - Robot TURN_RIGHT - Position: (6, 11), Direction: SOUTH
+2025-07-22 20:18:12,232 - Robot MOVE_FORWARD - Position: (6, 10), Direction: SOUTH
+2025-07-22 20:18:12,686 - Robot MOVE_FORWARD - Position: (6, 9), Direction: SOUTH
+2025-07-22 20:18:13,138 - Robot MOVE_FORWARD - Position: (6, 8), Direction: SOUTH
+2025-07-22 20:18:13,592 - Robot MOVE_FORWARD - Position: (6, 7), Direction: SOUTH
+2025-07-22 20:18:14,046 - Robot MOVE_FORWARD - Position: (6, 6), Direction: SOUTH
+2025-07-22 20:18:14,247 - Robot TURN_RIGHT - Position: (6, 6), Direction: WEST
+2025-07-22 20:18:19,194 - Robot MOVE_FORWARD - Position: (6, 7), Direction: NORTH
+2025-07-22 20:18:19,446 - Robot MOVE_FORWARD - Position: (6, 8), Direction: NORTH
+2025-07-22 20:18:19,447 - Robot TURN_RIGHT - Position: (6, 8), Direction: EAST
+2025-07-22 20:18:19,955 - Robot MOVE_FORWARD - Position: (7, 8), Direction: EAST
+2025-07-22 20:18:20,208 - Robot MOVE_FORWARD - Position: (8, 8), Direction: EAST
+2025-07-22 20:18:20,208 - Robot TURN_RIGHT - Position: (8, 8), Direction: SOUTH
+2025-07-22 20:18:20,713 - Robot MOVE_FORWARD - Position: (8, 7), Direction: SOUTH
+2025-07-22 20:31:10,473 - Robot MOVE_FORWARD - Position: (6, 7), Direction: NORTH
+2025-07-22 20:31:11,265 - 2 is prime: robot moved forward.
+2025-07-22 20:31:11,266 - Robot MOVE_FORWARD - Position: (6, 8), Direction: NORTH
+2025-07-22 20:31:12,021 - 3 is prime: robot moved forward.
+2025-07-22 20:31:12,022 - 4 is not prime: robot did not move.
+2025-07-22 20:31:12,023 - Robot MOVE_FORWARD - Position: (6, 9), Direction: NORTH
+2025-07-22 20:31:12,784 - 5 is prime: robot moved forward.
+2025-07-22 20:31:12,785 - 6 is not prime: robot did not move.
+2025-07-22 20:31:12,786 - Robot MOVE_FORWARD - Position: (6, 10), Direction: NORTH
+2025-07-22 20:31:13,543 - 7 is prime: robot moved forward.
+2025-07-22 20:31:19,545 - Robot TURN_LEFT - Position: (6, 6), Direction: WEST
+2025-07-22 20:31:19,828 - Robot MOVE_FORWARD - Position: (5, 6), Direction: WEST
+2025-07-22 20:31:20,084 - Robot TURN_RIGHT - Position: (5, 6), Direction: NORTH
+2025-07-22 20:31:20,339 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
+2025-07-22 20:31:20,593 - Robot TURN_LEFT - Position: (5, 7), Direction: WEST
+2025-07-22 20:31:20,847 - Robot MOVE_FORWARD - Position: (4, 7), Direction: WEST
+2025-07-22 20:31:21,102 - Robot TURN_RIGHT - Position: (4, 7), Direction: NORTH
+2025-07-22 20:31:21,358 - Robot MOVE_FORWARD - Position: (4, 8), Direction: NORTH
+2025-07-22 20:31:21,618 - Robot TURN_LEFT - Position: (4, 8), Direction: WEST
+2025-07-22 20:31:21,874 - Robot MOVE_FORWARD - Position: (3, 8), Direction: WEST
+2025-07-22 20:31:22,140 - Robot TURN_RIGHT - Position: (3, 8), Direction: NORTH
+2025-07-22 20:31:22,395 - Robot MOVE_FORWARD - Position: (3, 9), Direction: NORTH
+2025-07-22 20:31:29,847 - Robot MOVE_FORWARD - Position: (6, 7), Direction: NORTH
+2025-07-22 20:31:30,225 - Robot TURN_RIGHT - Position: (6, 7), Direction: EAST
+2025-07-22 20:31:30,490 - Robot MOVE_FORWARD - Position: (7, 7), Direction: EAST
+2025-07-22 20:31:30,844 - Robot MOVE_FORWARD - Position: (8, 7), Direction: EAST
+2025-07-22 20:31:31,199 - Robot TURN_RIGHT - Position: (8, 7), Direction: SOUTH
+2025-07-22 20:31:31,454 - Robot MOVE_FORWARD - Position: (8, 6), Direction: SOUTH
+2025-07-22 20:31:31,810 - Robot MOVE_FORWARD - Position: (8, 5), Direction: SOUTH
+2025-07-22 20:31:32,165 - Robot MOVE_FORWARD - Position: (8, 4), Direction: SOUTH
+2025-07-22 20:31:32,520 - Robot TURN_RIGHT - Position: (8, 4), Direction: WEST
+2025-07-22 20:31:32,776 - Robot MOVE_FORWARD - Position: (7, 4), Direction: WEST
+2025-07-22 20:31:33,133 - Robot MOVE_FORWARD - Position: (6, 4), Direction: WEST
+2025-07-22 20:31:33,490 - Robot MOVE_FORWARD - Position: (5, 4), Direction: WEST
+2025-07-22 20:31:33,847 - Robot MOVE_FORWARD - Position: (4, 4), Direction: WEST
+2025-07-22 20:31:34,203 - Robot TURN_RIGHT - Position: (4, 4), Direction: NORTH
+2025-07-22 20:31:38,946 - Robot TURN_LEFT - Position: (6, 6), Direction: WEST
+2025-07-22 20:31:39,438 - Robot MOVE_FORWARD - Position: (5, 6), Direction: WEST
+2025-07-22 20:31:39,902 - Robot MOVE_FORWARD - Position: (4, 6), Direction: WEST
+2025-07-22 20:31:40,356 - Robot MOVE_FORWARD - Position: (3, 6), Direction: WEST
+2025-07-22 20:31:40,816 - Robot MOVE_FORWARD - Position: (2, 6), Direction: WEST
+2025-07-22 20:31:41,271 - Robot TURN_LEFT - Position: (2, 6), Direction: SOUTH
+2025-07-22 20:31:41,725 - Robot MOVE_FORWARD - Position: (2, 5), Direction: SOUTH
+2025-07-22 20:31:42,180 - Hit wall at (2, 4) \u2192 Took diversion
+2025-07-22 20:31:42,181 - Robot TURN_RIGHT - Position: (2, 5), Direction: WEST
+2025-07-22 20:31:42,435 - Robot TURN_RIGHT - Position: (2, 5), Direction: NORTH
+2025-07-22 20:31:42,890 - Robot TURN_RIGHT - Position: (2, 5), Direction: EAST
+2025-07-22 20:31:43,345 - Robot MOVE_FORWARD - Position: (3, 5), Direction: EAST
+2025-07-22 20:31:43,799 - Robot TURN_LEFT - Position: (3, 5), Direction: NORTH
+2025-07-22 20:31:44,254 - Robot MOVE_FORWARD - Position: (3, 6), Direction: NORTH
+2025-07-22 20:31:52,064 - Robot TURN_LEFT - Position: (6, 6), Direction: WEST
+2025-07-22 20:31:52,876 - Robot MOVE_FORWARD - Position: (5, 6), Direction: WEST
+2025-07-22 20:31:53,630 - Robot TURN_RIGHT - Position: (5, 6), Direction: NORTH
+2025-07-22 20:31:54,386 - Robot TURN_LEFT - Position: (5, 6), Direction: WEST
+2025-07-22 20:31:55,142 - Robot MOVE_FORWARD - Position: (4, 6), Direction: WEST
+2025-07-22 20:31:55,896 - Robot TURN_RIGHT - Position: (4, 6), Direction: NORTH
+2025-07-22 20:31:56,654 - Robot TURN_LEFT - Position: (4, 6), Direction: WEST
+2025-07-22 20:31:58,853 - Robot MOVE_FORWARD - Position: (3, 6), Direction: WEST
+2025-07-22 20:41:36,205 - Robot MOVE_FORWARD - Position: (6, 7), Direction: NORTH
+2025-07-22 20:41:36,958 - 2 is prime: moved forward.
+2025-07-22 20:41:36,958 - Robot MOVE_FORWARD - Position: (6, 8), Direction: NORTH
+2025-07-22 20:41:37,710 - 3 is prime: moved forward.
+2025-07-22 20:41:37,710 - 4 is not prime: stayed in place.
+2025-07-22 20:41:37,711 - Robot MOVE_FORWARD - Position: (6, 9), Direction: NORTH
+2025-07-22 20:41:38,469 - 5 is prime: moved forward.
+2025-07-22 20:41:38,469 - 6 is not prime: stayed in place.
+2025-07-22 20:41:38,470 - Robot MOVE_FORWARD - Position: (6, 10), Direction: NORTH
+2025-07-22 20:41:39,226 - 7 is prime: moved forward.
+2025-07-22 20:41:39,226 - 8 is not prime: stayed in place.
+2025-07-22 20:41:39,227 - 9 is not prime: stayed in place.
+2025-07-22 20:41:39,228 - 10 is not prime: stayed in place.
+2025-07-22 20:41:39,228 - Robot MOVE_FORWARD - Position: (6, 11), Direction: NORTH
+2025-07-22 20:41:40,019 - 11 is prime: moved forward.
+2025-07-22 20:41:45,646 - Robot TURN_LEFT - Position: (6, 6), Direction: WEST
+2025-07-22 20:41:45,906 - Robot MOVE_FORWARD - Position: (5, 6), Direction: WEST
+2025-07-22 20:41:46,160 - Robot TURN_RIGHT - Position: (5, 6), Direction: NORTH
+2025-07-22 20:41:46,413 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
+2025-07-22 20:41:46,665 - Robot TURN_LEFT - Position: (5, 7), Direction: WEST
+2025-07-22 20:41:46,919 - Robot MOVE_FORWARD - Position: (4, 7), Direction: WEST
+2025-07-22 20:41:47,170 - Robot TURN_RIGHT - Position: (4, 7), Direction: NORTH
+2025-07-22 20:41:47,422 - Robot MOVE_FORWARD - Position: (4, 8), Direction: NORTH
+2025-07-22 20:41:47,673 - Robot TURN_LEFT - Position: (4, 8), Direction: WEST
+2025-07-22 20:41:47,925 - Robot MOVE_FORWARD - Position: (3, 8), Direction: WEST
+2025-07-22 20:41:48,178 - Robot TURN_RIGHT - Position: (3, 8), Direction: NORTH
+2025-07-22 20:41:48,433 - Robot MOVE_FORWARD - Position: (3, 9), Direction: NORTH
+2025-07-22 20:41:48,685 - Robot TURN_LEFT - Position: (3, 9), Direction: WEST
+2025-07-22 20:41:48,938 - Robot MOVE_FORWARD - Position: (2, 9), Direction: WEST
+2025-07-22 20:41:49,190 - Robot TURN_RIGHT - Position: (2, 9), Direction: NORTH
+2025-07-22 20:41:49,442 - Robot MOVE_FORWARD - Position: (2, 10), Direction: NORTH
+2025-07-22 20:41:53,386 - Robot MOVE_FORWARD - Position: (6, 7), Direction: NORTH
+2025-07-22 20:41:53,740 - Robot TURN_RIGHT - Position: (6, 7), Direction: EAST
+2025-07-22 20:41:53,993 - Robot MOVE_FORWARD - Position: (7, 7), Direction: EAST
+2025-07-22 20:41:54,345 - Robot MOVE_FORWARD - Position: (8, 7), Direction: EAST
+2025-07-22 20:41:54,698 - Robot TURN_RIGHT - Position: (8, 7), Direction: SOUTH
+2025-07-22 20:41:54,950 - Robot MOVE_FORWARD - Position: (8, 6), Direction: SOUTH
+2025-07-22 20:41:55,302 - Robot MOVE_FORWARD - Position: (8, 5), Direction: SOUTH
+2025-07-22 20:41:55,656 - Robot MOVE_FORWARD - Position: (8, 4), Direction: SOUTH
+2025-07-22 20:41:56,009 - Robot TURN_RIGHT - Position: (8, 4), Direction: WEST
+2025-07-22 20:41:56,261 - Robot MOVE_FORWARD - Position: (7, 4), Direction: WEST
+2025-07-22 20:41:56,615 - Robot MOVE_FORWARD - Position: (6, 4), Direction: WEST
+2025-07-22 20:41:56,968 - Robot MOVE_FORWARD - Position: (5, 4), Direction: WEST
+2025-07-22 20:41:57,320 - Robot MOVE_FORWARD - Position: (4, 4), Direction: WEST
+2025-07-22 20:41:57,672 - Robot TURN_RIGHT - Position: (4, 4), Direction: NORTH
+2025-07-22 20:41:57,925 - Robot MOVE_FORWARD - Position: (4, 5), Direction: NORTH
+2025-07-22 20:41:58,278 - Robot MOVE_FORWARD - Position: (4, 6), Direction: NORTH
+2025-07-22 20:41:58,631 - Robot MOVE_FORWARD - Position: (4, 7), Direction: NORTH
+2025-07-22 20:41:58,984 - Robot MOVE_FORWARD - Position: (4, 8), Direction: NORTH
+2025-07-22 20:41:59,337 - Robot MOVE_FORWARD - Position: (4, 9), Direction: NORTH
+2025-07-22 20:41:59,691 - Robot TURN_RIGHT - Position: (4, 9), Direction: EAST
+2025-07-22 20:48:12,121 - Robot MOVE_FORWARD - Position: (6, 7), Direction: NORTH
+2025-07-22 20:48:12,877 - 2 is prime: moved forward.
+2025-07-22 20:48:12,877 - Robot MOVE_FORWARD - Position: (6, 8), Direction: NORTH
+2025-07-22 20:48:13,631 - 3 is prime: moved forward.
+2025-07-22 20:48:13,632 - 4 is not prime: stayed in place.
+2025-07-22 20:48:13,632 - Robot MOVE_FORWARD - Position: (6, 9), Direction: NORTH
+2025-07-22 20:48:14,386 - 5 is prime: moved forward.
+2025-07-22 20:48:14,387 - 6 is not prime: stayed in place.
+2025-07-22 20:48:14,387 - Robot MOVE_FORWARD - Position: (6, 10), Direction: NORTH
+2025-07-22 20:48:15,139 - 7 is prime: moved forward.
+2025-07-22 20:48:15,139 - 8 is not prime: stayed in place.
+2025-07-22 20:48:15,140 - 9 is not prime: stayed in place.
+2025-07-22 20:48:15,140 - 10 is not prime: stayed in place.
+2025-07-22 20:48:15,141 - Robot MOVE_FORWARD - Position: (6, 11), Direction: NORTH
+2025-07-22 20:48:15,956 - 11 is prime: moved forward.
+2025-07-22 20:48:23,170 - Robot TURN_LEFT - Position: (6, 6), Direction: WEST
+2025-07-22 20:48:23,422 - Robot MOVE_FORWARD - Position: (5, 6), Direction: WEST
+2025-07-22 20:48:23,690 - Robot TURN_RIGHT - Position: (5, 6), Direction: NORTH
+2025-07-22 20:48:23,946 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
+2025-07-22 20:48:24,199 - Robot TURN_LEFT - Position: (5, 7), Direction: WEST
+2025-07-22 20:48:24,452 - Robot MOVE_FORWARD - Position: (4, 7), Direction: WEST
+2025-07-22 20:48:24,703 - Robot TURN_RIGHT - Position: (4, 7), Direction: NORTH
+2025-07-22 20:48:24,955 - Robot MOVE_FORWARD - Position: (4, 8), Direction: NORTH
+2025-07-22 20:48:25,207 - Robot TURN_LEFT - Position: (4, 8), Direction: WEST
+2025-07-22 20:48:25,459 - Robot MOVE_FORWARD - Position: (3, 8), Direction: WEST
+2025-07-22 20:48:25,711 - Robot TURN_RIGHT - Position: (3, 8), Direction: NORTH
+2025-07-22 20:48:25,963 - Robot MOVE_FORWARD - Position: (3, 9), Direction: NORTH
+2025-07-22 20:48:26,215 - Robot TURN_LEFT - Position: (3, 9), Direction: WEST
+2025-07-22 20:48:26,471 - Robot MOVE_FORWARD - Position: (2, 9), Direction: WEST
+2025-07-22 20:48:26,725 - Robot TURN_RIGHT - Position: (2, 9), Direction: NORTH
+2025-07-22 20:48:26,978 - Robot MOVE_FORWARD - Position: (2, 10), Direction: NORTH
+2025-07-22 20:48:31,134 - Robot MOVE_FORWARD - Position: (6, 7), Direction: NORTH
+2025-07-22 20:48:31,488 - Robot TURN_RIGHT - Position: (6, 7), Direction: EAST
+2025-07-22 20:48:31,744 - Robot MOVE_FORWARD - Position: (7, 7), Direction: EAST
+2025-07-22 20:48:32,098 - Robot MOVE_FORWARD - Position: (8, 7), Direction: EAST
+2025-07-22 20:48:32,454 - Robot TURN_RIGHT - Position: (8, 7), Direction: SOUTH
+2025-07-22 20:48:32,710 - Robot MOVE_FORWARD - Position: (8, 6), Direction: SOUTH
+2025-07-22 20:48:33,067 - Robot MOVE_FORWARD - Position: (8, 5), Direction: SOUTH
+2025-07-22 20:48:33,424 - Robot MOVE_FORWARD - Position: (8, 4), Direction: SOUTH
+2025-07-22 20:48:33,781 - Robot TURN_RIGHT - Position: (8, 4), Direction: WEST
+2025-07-22 20:48:34,037 - Robot MOVE_FORWARD - Position: (7, 4), Direction: WEST
+2025-07-22 20:48:34,392 - Robot MOVE_FORWARD - Position: (6, 4), Direction: WEST
+2025-07-22 20:48:34,748 - Robot MOVE_FORWARD - Position: (5, 4), Direction: WEST
+2025-07-22 20:48:35,104 - Robot MOVE_FORWARD - Position: (4, 4), Direction: WEST
+2025-07-22 20:48:35,463 - Robot TURN_RIGHT - Position: (4, 4), Direction: NORTH
+2025-07-22 20:48:35,720 - Robot MOVE_FORWARD - Position: (4, 5), Direction: NORTH
+2025-07-22 20:48:36,081 - Robot MOVE_FORWARD - Position: (4, 6), Direction: NORTH
+2025-07-22 20:48:36,439 - Robot MOVE_FORWARD - Position: (4, 7), Direction: NORTH
+2025-07-22 20:48:36,799 - Robot MOVE_FORWARD - Position: (4, 8), Direction: NORTH
+2025-07-22 20:48:37,157 - Robot MOVE_FORWARD - Position: (4, 9), Direction: NORTH
+2025-07-22 20:48:37,517 - Robot TURN_RIGHT - Position: (4, 9), Direction: EAST
+2025-07-22 20:48:40,979 - Robot MOVE_FORWARD - Position: (6, 7), Direction: NORTH
+2025-07-22 20:48:41,445 - Robot TURN_RIGHT - Position: (6, 7), Direction: EAST
+2025-07-22 20:48:41,899 - Robot MOVE_FORWARD - Position: (7, 7), Direction: EAST
+2025-07-22 20:48:42,353 - Robot TURN_LEFT - Position: (7, 7), Direction: NORTH
+2025-07-22 20:48:42,808 - Robot TURN_RIGHT - Position: (7, 7), Direction: EAST
+2025-07-22 20:48:43,264 - Robot MOVE_FORWARD - Position: (8, 7), Direction: EAST
+2025-07-22 20:48:43,719 - Robot TURN_LEFT - Position: (8, 7), Direction: NORTH
+2025-07-22 20:48:44,176 - Robot MOVE_FORWARD - Position: (8, 8), Direction: NORTH
+2025-07-22 20:48:44,634 - Robot MOVE_FORWARD - Position: (8, 9), Direction: NORTH
+2025-07-22 20:48:45,090 - Robot MOVE_FORWARD - Position: (8, 10), Direction: NORTH
+2025-07-22 20:48:45,547 - Robot TURN_RIGHT - Position: (8, 10), Direction: EAST
+2025-07-22 20:48:46,004 - Robot MOVE_FORWARD - Position: (9, 10), Direction: EAST
+2025-07-22 20:48:46,462 - Robot MOVE_FORWARD - Position: (10, 10), Direction: EAST
+2025-07-22 20:48:46,919 - Robot MOVE_FORWARD - Position: (11, 10), Direction: EAST
+2025-07-22 20:48:47,377 - Hit wall at (12, 10) \u2192 Took diversion
+2025-07-22 20:48:47,378 - Robot TURN_RIGHT - Position: (11, 10), Direction: SOUTH
+2025-07-22 20:48:47,635 - Robot TURN_LEFT - Position: (11, 10), Direction: EAST
+2025-07-22 20:48:52,300 - Robot TURN_LEFT - Position: (6, 6), Direction: WEST
+2025-07-22 20:48:52,954 - Robot MOVE_FORWARD - Position: (5, 6), Direction: WEST
+2025-07-22 20:48:53,611 - Robot TURN_RIGHT - Position: (5, 6), Direction: NORTH
+2025-07-22 20:48:54,266 - Robot TURN_LEFT - Position: (5, 6), Direction: WEST
+2025-07-22 20:48:54,920 - Robot MOVE_FORWARD - Position: (4, 6), Direction: WEST
+2025-07-22 20:48:55,575 - Robot TURN_RIGHT - Position: (4, 6), Direction: NORTH
+2025-07-22 20:48:56,230 - Robot TURN_LEFT - Position: (4, 6), Direction: WEST
+2025-07-22 20:48:56,883 - Robot MOVE_FORWARD - Position: (3, 6), Direction: WEST
+2025-07-22 21:47:20,222 - Robot MOVE_FORWARD - Position: (6, 7), Direction: NORTH
+2025-07-22 21:47:20,980 - 2 is prime: moved forward.
+2025-07-22 21:47:20,980 - Robot MOVE_FORWARD - Position: (6, 8), Direction: NORTH
+2025-07-22 21:47:21,752 - 3 is prime: moved forward.
+2025-07-22 21:47:21,752 - 4 is not prime: stayed in place.
+2025-07-22 21:47:21,752 - Robot MOVE_FORWARD - Position: (6, 9), Direction: NORTH
+2025-07-22 21:47:22,509 - 5 is prime: moved forward.
+2025-07-22 21:47:22,510 - 6 is not prime: stayed in place.
+2025-07-22 21:47:22,510 - Robot MOVE_FORWARD - Position: (6, 10), Direction: NORTH
+2025-07-22 21:47:23,267 - 7 is prime: moved forward.
+2025-07-22 21:47:23,267 - 8 is not prime: stayed in place.
+2025-07-22 21:47:23,267 - 9 is not prime: stayed in place.
+2025-07-22 21:47:23,267 - 10 is not prime: stayed in place.
+2025-07-22 21:47:23,267 - Robot MOVE_FORWARD - Position: (6, 11), Direction: NORTH
+2025-07-22 21:47:24,021 - 11 is prime: moved forward.
+2025-07-22 21:47:28,268 - Robot TURN_LEFT - Position: (6, 6), Direction: WEST
+2025-07-22 21:47:28,522 - Robot MOVE_FORWARD - Position: (5, 6), Direction: WEST
+2025-07-22 21:47:28,774 - Robot TURN_RIGHT - Position: (5, 6), Direction: NORTH
+2025-07-22 21:47:29,031 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
+2025-07-22 21:47:29,289 - Robot TURN_LEFT - Position: (5, 7), Direction: WEST
+2025-07-22 21:47:29,542 - Robot MOVE_FORWARD - Position: (4, 7), Direction: WEST
+2025-07-22 21:47:29,798 - Robot TURN_RIGHT - Position: (4, 7), Direction: NORTH
+2025-07-22 21:47:30,054 - Robot MOVE_FORWARD - Position: (4, 8), Direction: NORTH
+2025-07-22 21:47:30,310 - Robot TURN_LEFT - Position: (4, 8), Direction: WEST
+2025-07-22 21:47:30,568 - Robot MOVE_FORWARD - Position: (3, 8), Direction: WEST
+2025-07-22 21:47:30,826 - Robot TURN_RIGHT - Position: (3, 8), Direction: NORTH
+2025-07-22 21:47:31,085 - Robot MOVE_FORWARD - Position: (3, 9), Direction: NORTH
+2025-07-22 21:47:31,345 - Robot TURN_LEFT - Position: (3, 9), Direction: WEST
+2025-07-22 21:47:31,603 - Robot MOVE_FORWARD - Position: (2, 9), Direction: WEST
+2025-07-22 21:47:31,862 - Robot TURN_RIGHT - Position: (2, 9), Direction: NORTH
+2025-07-22 21:47:32,123 - Robot MOVE_FORWARD - Position: (2, 10), Direction: NORTH
+2025-07-22 21:47:36,558 - Robot MOVE_FORWARD - Position: (6, 7), Direction: NORTH
+2025-07-22 21:47:36,914 - Robot TURN_RIGHT - Position: (6, 7), Direction: EAST
+2025-07-22 21:47:37,169 - Robot MOVE_FORWARD - Position: (7, 7), Direction: EAST
+2025-07-22 21:47:37,527 - Robot MOVE_FORWARD - Position: (8, 7), Direction: EAST
+2025-07-22 21:47:37,886 - Robot TURN_RIGHT - Position: (8, 7), Direction: SOUTH
+2025-07-22 21:47:38,143 - Robot MOVE_FORWARD - Position: (8, 6), Direction: SOUTH
+2025-07-22 21:47:38,500 - Robot MOVE_FORWARD - Position: (8, 5), Direction: SOUTH
+2025-07-22 21:47:38,858 - Robot MOVE_FORWARD - Position: (8, 4), Direction: SOUTH
+2025-07-22 21:47:39,219 - Robot TURN_RIGHT - Position: (8, 4), Direction: WEST
+2025-07-22 21:47:39,481 - Robot MOVE_FORWARD - Position: (7, 4), Direction: WEST
+2025-07-22 21:47:39,842 - Robot MOVE_FORWARD - Position: (6, 4), Direction: WEST
+2025-07-22 21:47:40,195 - Robot MOVE_FORWARD - Position: (5, 4), Direction: WEST
+2025-07-22 21:47:40,548 - Robot MOVE_FORWARD - Position: (4, 4), Direction: WEST
+2025-07-22 21:47:40,910 - Robot TURN_RIGHT - Position: (4, 4), Direction: NORTH
+2025-07-22 21:47:41,174 - Robot MOVE_FORWARD - Position: (4, 5), Direction: NORTH
+2025-07-22 21:47:41,538 - Robot MOVE_FORWARD - Position: (4, 6), Direction: NORTH
+2025-07-22 21:47:41,899 - Robot MOVE_FORWARD - Position: (4, 7), Direction: NORTH
+2025-07-22 21:47:42,263 - Robot MOVE_FORWARD - Position: (4, 8), Direction: NORTH
+2025-07-22 21:47:42,628 - Robot MOVE_FORWARD - Position: (4, 9), Direction: NORTH
+2025-07-22 21:47:42,995 - Robot TURN_RIGHT - Position: (4, 9), Direction: EAST
+2025-07-22 21:47:48,439 - Robot MOVE_FORWARD - Position: (6, 7), Direction: NORTH
+2025-07-22 21:47:48,898 - Robot MOVE_FORWARD - Position: (6, 8), Direction: NORTH
+2025-07-22 21:47:49,353 - Robot TURN_LEFT - Position: (6, 8), Direction: WEST
+2025-07-22 21:47:49,806 - Robot MOVE_FORWARD - Position: (5, 8), Direction: WEST
+2025-07-22 21:47:50,262 - Robot MOVE_FORWARD - Position: (4, 8), Direction: WEST
+2025-07-22 21:47:50,717 - Robot TURN_LEFT - Position: (4, 8), Direction: SOUTH
+2025-07-22 21:47:51,172 - Hit wall at (4, 7) \u2192 Took diversion
+2025-07-22 21:47:51,174 - Robot TURN_RIGHT - Position: (4, 8), Direction: WEST
+2025-07-22 21:47:51,433 - Robot TURN_LEFT - Position: (4, 8), Direction: SOUTH
+2025-07-22 21:47:51,891 - Hit wall at (4, 7) \u2192 Took diversion
+2025-07-22 21:47:51,892 - Robot TURN_RIGHT - Position: (4, 8), Direction: WEST
+2025-07-22 21:47:52,166 - Robot TURN_LEFT - Position: (4, 8), Direction: SOUTH
+2025-07-22 21:47:52,623 - Hit wall at (4, 7) \u2192 Took diversion
+2025-07-22 21:47:52,624 - Robot TURN_RIGHT - Position: (4, 8), Direction: WEST
+2025-07-22 21:47:52,878 - Robot TURN_LEFT - Position: (4, 8), Direction: SOUTH
+2025-07-22 21:47:53,335 - Hit wall at (4, 7) \u2192 Took diversion
+2025-07-22 21:47:53,336 - Robot TURN_RIGHT - Position: (4, 8), Direction: WEST
+2025-07-22 21:47:53,593 - Robot TURN_LEFT - Position: (4, 8), Direction: SOUTH
+2025-07-22 21:47:54,052 - Hit wall at (4, 7) \u2192 Took diversion
+2025-07-22 21:47:54,054 - Robot TURN_RIGHT - Position: (4, 8), Direction: WEST
+2025-07-22 21:47:54,315 - Robot TURN_LEFT - Position: (4, 8), Direction: SOUTH
+2025-07-22 21:47:54,773 - Hit wall at (4, 7) \u2192 Took diversion
+2025-07-22 21:47:54,774 - Robot TURN_RIGHT - Position: (4, 8), Direction: WEST
+2025-07-22 21:47:55,033 - Robot TURN_LEFT - Position: (4, 8), Direction: SOUTH
+2025-07-22 21:47:55,490 - Robot TURN_RIGHT - Position: (4, 8), Direction: WEST
+2025-07-22 21:47:55,943 - Robot MOVE_FORWARD - Position: (3, 8), Direction: WEST
+2025-07-22 21:47:56,401 - Robot MOVE_FORWARD - Position: (2, 8), Direction: WEST
+2025-07-22 21:48:03,057 - Robot TURN_LEFT - Position: (6, 6), Direction: WEST
+2025-07-22 21:48:03,712 - Robot MOVE_FORWARD - Position: (5, 6), Direction: WEST
+2025-07-22 21:48:04,367 - Robot TURN_RIGHT - Position: (5, 6), Direction: NORTH
+2025-07-22 21:48:05,023 - Robot TURN_LEFT - Position: (5, 6), Direction: WEST
+2025-07-22 21:48:05,675 - Robot MOVE_FORWARD - Position: (4, 6), Direction: WEST
+2025-07-22 21:48:06,331 - Robot TURN_RIGHT - Position: (4, 6), Direction: NORTH
+2025-07-22 21:48:06,987 - Robot TURN_LEFT - Position: (4, 6), Direction: WEST
+2025-07-22 21:48:07,641 - Robot MOVE_FORWARD - Position: (3, 6), Direction: WEST
+2025-07-22 21:53:31,663 - Robot MOVE_FORWARD - Position: (6, 7), Direction: NORTH
+2025-07-22 21:53:32,416 - 2 is prime: moved forward.
+2025-07-22 21:53:32,417 - Robot MOVE_FORWARD - Position: (6, 8), Direction: NORTH
+2025-07-22 21:53:33,172 - 3 is prime: moved forward.
+2025-07-22 21:53:33,172 - 4 is not prime: stayed in place.
+2025-07-22 21:53:33,172 - Robot MOVE_FORWARD - Position: (6, 9), Direction: NORTH
+2025-07-22 21:53:33,925 - 5 is prime: moved forward.
+2025-07-22 21:53:33,925 - 6 is not prime: stayed in place.
+2025-07-22 21:53:33,925 - Robot MOVE_FORWARD - Position: (6, 10), Direction: NORTH
+2025-07-22 21:53:34,680 - 7 is prime: moved forward.
+2025-07-22 21:53:34,681 - 8 is not prime: stayed in place.
+2025-07-22 21:53:34,681 - 9 is not prime: stayed in place.
+2025-07-22 21:53:34,682 - 10 is not prime: stayed in place.
+2025-07-22 21:53:34,682 - Robot MOVE_FORWARD - Position: (6, 11), Direction: NORTH
+2025-07-22 21:53:35,436 - 11 is prime: moved forward.
+2025-07-22 21:53:39,655 - Robot TURN_LEFT - Position: (6, 6), Direction: WEST
+2025-07-22 21:53:39,908 - Robot MOVE_FORWARD - Position: (5, 6), Direction: WEST
+2025-07-22 21:53:40,161 - Robot TURN_RIGHT - Position: (5, 6), Direction: NORTH
+2025-07-22 21:53:40,412 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
+2025-07-22 21:53:40,664 - Robot TURN_LEFT - Position: (5, 7), Direction: WEST
+2025-07-22 21:53:40,918 - Robot MOVE_FORWARD - Position: (4, 7), Direction: WEST
+2025-07-22 21:53:41,172 - Robot TURN_RIGHT - Position: (4, 7), Direction: NORTH
+2025-07-22 21:53:41,430 - Robot MOVE_FORWARD - Position: (4, 8), Direction: NORTH
+2025-07-22 21:53:41,685 - Robot TURN_LEFT - Position: (4, 8), Direction: WEST
+2025-07-22 21:53:41,940 - Robot MOVE_FORWARD - Position: (3, 8), Direction: WEST
+2025-07-22 21:53:42,195 - Robot TURN_RIGHT - Position: (3, 8), Direction: NORTH
+2025-07-22 21:53:42,452 - Robot MOVE_FORWARD - Position: (3, 9), Direction: NORTH
+2025-07-22 21:53:42,707 - Robot TURN_LEFT - Position: (3, 9), Direction: WEST
+2025-07-22 21:53:42,965 - Robot MOVE_FORWARD - Position: (2, 9), Direction: WEST
+2025-07-22 21:53:43,218 - Robot TURN_RIGHT - Position: (2, 9), Direction: NORTH
+2025-07-22 21:53:43,472 - Robot MOVE_FORWARD - Position: (2, 10), Direction: NORTH
+2025-07-22 21:53:47,866 - Robot MOVE_FORWARD - Position: (6, 7), Direction: NORTH
+2025-07-22 21:53:48,223 - Robot TURN_RIGHT - Position: (6, 7), Direction: EAST
+2025-07-22 21:53:48,476 - Robot MOVE_FORWARD - Position: (7, 7), Direction: EAST
+2025-07-22 21:53:48,829 - Robot MOVE_FORWARD - Position: (8, 7), Direction: EAST
+2025-07-22 21:53:49,181 - Robot TURN_RIGHT - Position: (8, 7), Direction: SOUTH
+2025-07-22 21:53:49,433 - Robot MOVE_FORWARD - Position: (8, 6), Direction: SOUTH
+2025-07-22 21:53:49,788 - Robot MOVE_FORWARD - Position: (8, 5), Direction: SOUTH
+2025-07-22 21:53:50,178 - Robot MOVE_FORWARD - Position: (8, 4), Direction: SOUTH
+2025-07-22 21:53:50,531 - Robot TURN_RIGHT - Position: (8, 4), Direction: WEST
+2025-07-22 21:53:50,788 - Robot MOVE_FORWARD - Position: (7, 4), Direction: WEST
+2025-07-22 21:53:51,142 - Robot MOVE_FORWARD - Position: (6, 4), Direction: WEST
+2025-07-22 21:53:51,496 - Robot MOVE_FORWARD - Position: (5, 4), Direction: WEST
+2025-07-22 21:53:51,850 - Robot MOVE_FORWARD - Position: (4, 4), Direction: WEST
+2025-07-22 21:53:52,204 - Robot TURN_RIGHT - Position: (4, 4), Direction: NORTH
+2025-07-22 21:53:52,459 - Robot MOVE_FORWARD - Position: (4, 5), Direction: NORTH
+2025-07-22 21:53:52,815 - Robot MOVE_FORWARD - Position: (4, 6), Direction: NORTH
+2025-07-22 21:53:53,173 - Robot MOVE_FORWARD - Position: (4, 7), Direction: NORTH
+2025-07-22 21:53:53,529 - Robot MOVE_FORWARD - Position: (4, 8), Direction: NORTH
+2025-07-22 21:53:53,884 - Robot MOVE_FORWARD - Position: (4, 9), Direction: NORTH
+2025-07-22 21:53:54,240 - Robot TURN_RIGHT - Position: (4, 9), Direction: EAST
+2025-07-22 21:53:59,675 - Hit wall at (6, 7) \u2192 Took diversion
+2025-07-22 21:53:59,675 - Robot TURN_RIGHT - Position: (6, 6), Direction: EAST
+2025-07-22 21:53:59,932 - Robot TURN_RIGHT - Position: (6, 6), Direction: SOUTH
+2025-07-22 21:54:00,388 - Robot TURN_RIGHT - Position: (6, 6), Direction: WEST
+2025-07-22 21:54:00,842 - Robot MOVE_FORWARD - Position: (5, 6), Direction: WEST
+2025-07-22 21:54:01,297 - Robot MOVE_FORWARD - Position: (4, 6), Direction: WEST
+2025-07-22 21:54:01,755 - Robot TURN_RIGHT - Position: (4, 6), Direction: NORTH
+2025-07-22 21:54:02,208 - Robot MOVE_FORWARD - Position: (4, 7), Direction: NORTH
+2025-07-22 21:54:02,668 - Robot TURN_LEFT - Position: (4, 7), Direction: WEST
+2025-07-22 21:54:03,122 - Robot TURN_RIGHT - Position: (4, 7), Direction: NORTH
+2025-07-22 21:54:03,577 - Robot MOVE_FORWARD - Position: (4, 8), Direction: NORTH
+2025-07-22 21:54:04,032 - Robot MOVE_FORWARD - Position: (4, 9), Direction: NORTH
+2025-07-22 21:54:04,489 - Robot TURN_LEFT - Position: (4, 9), Direction: WEST
+2025-07-22 21:54:04,945 - Robot TURN_LEFT - Position: (4, 9), Direction: SOUTH
+2025-07-22 21:54:05,401 - Robot MOVE_FORWARD - Position: (4, 8), Direction: SOUTH
+2025-07-22 21:54:05,856 - Robot TURN_RIGHT - Position: (4, 8), Direction: WEST
+2025-07-22 21:54:06,312 - Robot MOVE_FORWARD - Position: (3, 8), Direction: WEST
+2025-07-22 21:54:12,901 - Robot TURN_LEFT - Position: (6, 6), Direction: WEST
+2025-07-22 21:54:13,559 - Robot MOVE_FORWARD - Position: (5, 6), Direction: WEST
+2025-07-22 21:54:14,211 - Robot TURN_RIGHT - Position: (5, 6), Direction: NORTH
+2025-07-22 21:54:14,863 - Robot TURN_LEFT - Position: (5, 6), Direction: WEST
+2025-07-22 21:54:15,514 - Robot MOVE_FORWARD - Position: (4, 6), Direction: WEST
+2025-07-22 21:54:16,168 - Robot TURN_RIGHT - Position: (4, 6), Direction: NORTH
+2025-07-22 21:54:16,823 - Robot TURN_LEFT - Position: (4, 6), Direction: WEST
+2025-07-22 21:54:17,477 - Robot MOVE_FORWARD - Position: (3, 6), Direction: WEST
+2025-07-23 00:41:09,013 - Robot MOVE_FORWARD - Position: (6, 7), Direction: NORTH
+2025-07-23 00:41:09,272 - Robot MOVE_FORWARD - Position: (6, 8), Direction: NORTH
+2025-07-23 00:41:09,527 - Robot MOVE_FORWARD - Position: (6, 9), Direction: NORTH
+2025-07-23 00:41:09,780 - Robot MOVE_FORWARD - Position: (6, 10), Direction: NORTH
+2025-07-23 00:41:10,038 - Robot MOVE_FORWARD - Position: (6, 11), Direction: NORTH
+2025-07-23 00:41:13,483 - Robot MOVE_FORWARD - Position: (7, 8), Direction: NORTH
+2025-07-23 00:41:13,737 - Robot MOVE_FORWARD - Position: (7, 9), Direction: NORTH
+2025-07-23 00:41:13,995 - Robot MOVE_FORWARD - Position: (7, 10), Direction: NORTH
+2025-07-23 00:41:14,259 - Robot MOVE_FORWARD - Position: (7, 11), Direction: NORTH
+2025-07-23 00:41:14,515 - Robot MOVE_FORWARD - Position: (7, 12), Direction: NORTH
+2025-07-23 00:41:14,516 - Robot TURN_RIGHT - Position: (7, 12), Direction: EAST
+2025-07-23 00:41:15,029 - Robot MOVE_FORWARD - Position: (8, 12), Direction: EAST
+2025-07-23 00:41:15,297 - Robot MOVE_FORWARD - Position: (9, 12), Direction: EAST
+2025-07-23 00:41:15,554 - Robot MOVE_FORWARD - Position: (10, 12), Direction: EAST
+2025-07-23 00:41:20,062 - Robot MOVE_FORWARD - Position: (7, 8), Direction: NORTH
+2025-07-23 00:41:20,315 - Robot MOVE_FORWARD - Position: (7, 9), Direction: NORTH
+2025-07-23 00:41:20,569 - Robot MOVE_FORWARD - Position: (7, 10), Direction: NORTH
+2025-07-23 00:41:20,827 - Robot MOVE_FORWARD - Position: (7, 11), Direction: NORTH
+2025-07-23 00:41:21,081 - Robot MOVE_FORWARD - Position: (7, 12), Direction: NORTH
+2025-07-23 00:41:21,336 - Robot MOVE_FORWARD - Position: (7, 13), Direction: NORTH
+2025-07-23 00:41:21,592 - Robot MOVE_FORWARD - Position: (7, 14), Direction: NORTH
+2025-07-23 00:41:21,593 - Hit wall at (7, 15) \u2192 Took diversion
+2025-07-23 00:41:21,607 - Robot TURN_RIGHT - Position: (7, 14), Direction: EAST
+2025-07-23 00:41:21,863 - Robot TURN_RIGHT - Position: (7, 14), Direction: SOUTH
+2025-07-23 00:41:22,374 - Robot MOVE_FORWARD - Position: (7, 13), Direction: SOUTH
+2025-07-23 00:41:22,628 - Robot MOVE_FORWARD - Position: (7, 12), Direction: SOUTH
+2025-07-23 00:41:22,885 - Robot MOVE_FORWARD - Position: (7, 11), Direction: SOUTH
+2025-07-23 00:41:23,142 - Robot MOVE_FORWARD - Position: (7, 10), Direction: SOUTH
+2025-07-23 00:41:23,399 - Robot MOVE_FORWARD - Position: (7, 9), Direction: SOUTH
+2025-07-23 00:41:23,660 - Robot MOVE_FORWARD - Position: (7, 8), Direction: SOUTH
+2025-07-23 00:41:23,916 - Robot MOVE_FORWARD - Position: (7, 7), Direction: SOUTH
+2025-07-23 00:41:24,172 - Robot MOVE_FORWARD - Position: (7, 6), Direction: SOUTH
+2025-07-23 00:41:24,429 - Robot MOVE_FORWARD - Position: (7, 5), Direction: SOUTH
+2025-07-23 00:41:24,687 - Robot MOVE_FORWARD - Position: (7, 4), Direction: SOUTH
+2025-07-23 00:41:24,949 - Robot MOVE_FORWARD - Position: (7, 3), Direction: SOUTH
+2025-07-23 00:41:25,210 - Robot MOVE_FORWARD - Position: (7, 2), Direction: SOUTH
+2025-07-23 00:41:30,684 - Robot MOVE_FORWARD - Position: (10, 11), Direction: NORTH
+2025-07-23 00:41:30,684 - Robot TURN_RIGHT - Position: (10, 11), Direction: EAST
+2025-07-23 00:41:31,208 - Robot MOVE_FORWARD - Position: (11, 11), Direction: EAST
+2025-07-23 00:41:31,208 - Robot TURN_RIGHT - Position: (11, 11), Direction: SOUTH
+2025-07-23 00:41:31,717 - Robot MOVE_FORWARD - Position: (11, 10), Direction: SOUTH
+2025-07-23 00:41:31,972 - Robot MOVE_FORWARD - Position: (11, 9), Direction: SOUTH
+2025-07-23 00:41:31,972 - Robot TURN_RIGHT - Position: (11, 9), Direction: WEST
+2025-07-23 00:41:32,482 - Robot MOVE_FORWARD - Position: (10, 9), Direction: WEST
+2025-07-23 00:41:32,740 - Robot MOVE_FORWARD - Position: (9, 9), Direction: WEST
+2025-07-23 00:41:32,995 - Robot MOVE_FORWARD - Position: (8, 9), Direction: WEST
+2025-07-23 00:41:32,995 - Robot TURN_RIGHT - Position: (8, 9), Direction: NORTH
+2025-07-23 00:41:33,509 - Robot MOVE_FORWARD - Position: (8, 10), Direction: NORTH
+2025-07-23 00:41:33,765 - Robot MOVE_FORWARD - Position: (8, 11), Direction: NORTH
+2025-07-23 00:41:34,022 - Robot MOVE_FORWARD - Position: (8, 12), Direction: NORTH
+2025-07-23 00:41:34,278 - Robot MOVE_FORWARD - Position: (8, 13), Direction: NORTH
+2025-07-23 00:41:34,537 - Robot MOVE_FORWARD - Position: (8, 14), Direction: NORTH
+2025-07-23 00:41:34,538 - Robot TURN_RIGHT - Position: (8, 14), Direction: EAST
+2025-07-23 00:41:35,051 - Robot MOVE_FORWARD - Position: (9, 14), Direction: EAST
+2025-07-23 00:41:35,308 - Robot MOVE_FORWARD - Position: (10, 14), Direction: EAST
+2025-07-23 00:41:35,568 - Robot MOVE_FORWARD - Position: (11, 14), Direction: EAST
+2025-07-23 00:41:35,828 - Robot MOVE_FORWARD - Position: (12, 14), Direction: EAST
+2025-07-23 00:41:36,086 - Robot MOVE_FORWARD - Position: (13, 14), Direction: EAST
+2025-07-23 00:41:36,346 - Robot MOVE_FORWARD - Position: (14, 14), Direction: EAST
+2025-07-23 00:41:36,610 - Robot MOVE_FORWARD - Position: (15, 14), Direction: EAST
+2025-07-23 00:41:36,872 - Robot MOVE_FORWARD - Position: (16, 14), Direction: EAST
+2025-07-23 00:41:36,873 - Robot TURN_RIGHT - Position: (16, 14), Direction: SOUTH
+2025-07-23 00:41:37,393 - Robot MOVE_FORWARD - Position: (16, 13), Direction: SOUTH
+2025-07-23 00:41:37,655 - Robot MOVE_FORWARD - Position: (16, 12), Direction: SOUTH
+2025-07-23 00:41:37,914 - Robot MOVE_FORWARD - Position: (16, 11), Direction: SOUTH
+2025-07-23 00:41:38,172 - Robot MOVE_FORWARD - Position: (16, 10), Direction: SOUTH
+2025-07-23 00:41:38,435 - Robot MOVE_FORWARD - Position: (16, 9), Direction: SOUTH
+2025-07-23 00:41:38,698 - Robot MOVE_FORWARD - Position: (16, 8), Direction: SOUTH
+2025-07-23 00:41:38,960 - Robot MOVE_FORWARD - Position: (16, 7), Direction: SOUTH
+2025-07-23 00:41:39,221 - Robot MOVE_FORWARD - Position: (16, 6), Direction: SOUTH
+2025-07-23 00:41:39,482 - Robot MOVE_FORWARD - Position: (16, 5), Direction: SOUTH
+2025-07-23 00:41:39,747 - Robot MOVE_FORWARD - Position: (16, 4), Direction: SOUTH
+2025-07-23 00:41:39,747 - Robot TURN_RIGHT - Position: (16, 4), Direction: WEST
+2025-07-23 00:41:40,273 - Robot MOVE_FORWARD - Position: (15, 4), Direction: WEST
+2025-07-23 00:41:40,535 - Robot MOVE_FORWARD - Position: (14, 4), Direction: WEST
+2025-07-23 00:41:40,814 - Robot MOVE_FORWARD - Position: (13, 4), Direction: WEST
+2025-07-23 00:41:41,079 - Robot MOVE_FORWARD - Position: (12, 4), Direction: WEST
+2025-07-23 00:41:41,344 - Robot MOVE_FORWARD - Position: (11, 4), Direction: WEST
+2025-07-23 00:41:41,612 - Robot MOVE_FORWARD - Position: (10, 4), Direction: WEST
+2025-07-23 00:41:41,873 - Robot MOVE_FORWARD - Position: (9, 4), Direction: WEST
+2025-07-23 00:41:42,136 - Robot MOVE_FORWARD - Position: (8, 4), Direction: WEST
+2025-07-23 00:41:42,402 - Robot MOVE_FORWARD - Position: (7, 4), Direction: WEST
+2025-07-23 00:41:42,666 - Robot MOVE_FORWARD - Position: (6, 4), Direction: WEST
+2025-07-23 00:41:42,667 - Robot TURN_RIGHT - Position: (6, 4), Direction: NORTH
+2025-07-23 01:05:01,433 - Robot MOVE_FORWARD - Position: (6, 8), Direction: NORTH
+2025-07-23 01:05:01,934 - 2 is prime: robot moved forward.
+2025-07-23 01:05:02,186 - Robot MOVE_FORWARD - Position: (6, 9), Direction: NORTH
+2025-07-23 01:05:02,688 - 3 is prime: robot moved forward.
+2025-07-23 01:05:02,689 - 4 is not prime: robot did not move.
+2025-07-23 01:05:02,689 - Hit wall at (6, 10) \u2192 Took diversion
+2025-07-23 01:05:02,695 - Robot TURN_RIGHT - Position: (6, 9), Direction: EAST
+2025-07-23 01:05:03,458 - 5 is prime: robot moved forward.
+2025-07-23 01:05:03,459 - 6 is not prime: robot did not move.
+2025-07-23 01:05:03,720 - Robot MOVE_FORWARD - Position: (7, 9), Direction: EAST
+2025-07-23 01:05:04,233 - 7 is prime: robot moved forward.
+2025-07-23 01:05:04,234 - 8 is not prime: robot did not move.
+2025-07-23 01:05:04,234 - 9 is not prime: robot did not move.
+2025-07-23 01:05:04,235 - 10 is not prime: robot did not move.
+2025-07-23 01:05:04,490 - Robot MOVE_FORWARD - Position: (8, 9), Direction: EAST
+2025-07-23 01:05:04,992 - 11 is prime: robot moved forward.
+2025-07-23 01:05:10,235 - Robot TURN_LEFT - Position: (3, 6), Direction: WEST
+2025-07-23 01:05:10,776 - Robot MOVE_FORWARD - Position: (2, 6), Direction: WEST
+2025-07-23 01:05:10,777 - Robot TURN_RIGHT - Position: (2, 6), Direction: NORTH
+2025-07-23 01:05:11,284 - Robot MOVE_FORWARD - Position: (2, 7), Direction: NORTH
+2025-07-23 01:05:11,285 - Robot TURN_LEFT - Position: (2, 7), Direction: WEST
+2025-07-23 01:05:11,795 - Robot MOVE_FORWARD - Position: (1, 7), Direction: WEST
+2025-07-23 01:05:11,796 - Robot TURN_RIGHT - Position: (1, 7), Direction: NORTH
+2025-07-23 01:05:12,303 - Robot MOVE_FORWARD - Position: (1, 8), Direction: NORTH
+2025-07-23 01:05:12,304 - Robot TURN_LEFT - Position: (1, 8), Direction: WEST
+2025-07-23 01:05:12,812 - Robot MOVE_FORWARD - Position: (0, 8), Direction: WEST
+2025-07-23 01:05:12,812 - Robot TURN_RIGHT - Position: (0, 8), Direction: NORTH
+2025-07-23 01:05:13,321 - Robot MOVE_FORWARD - Position: (0, 9), Direction: NORTH
+2025-07-23 01:05:18,798 - Robot MOVE_FORWARD - Position: (7, 3), Direction: SOUTH
+2025-07-23 01:05:18,900 - Robot TURN_RIGHT - Position: (7, 3), Direction: WEST
+2025-07-23 01:05:19,408 - Robot MOVE_FORWARD - Position: (6, 3), Direction: WEST
+2025-07-23 01:05:19,762 - Robot MOVE_FORWARD - Position: (5, 3), Direction: WEST
+2025-07-23 01:05:19,863 - Robot TURN_RIGHT - Position: (5, 3), Direction: NORTH
+2025-07-23 01:05:20,378 - Robot MOVE_FORWARD - Position: (5, 4), Direction: NORTH
+2025-07-23 01:05:20,733 - Robot MOVE_FORWARD - Position: (5, 5), Direction: NORTH
+2025-07-23 01:05:21,092 - Robot MOVE_FORWARD - Position: (5, 6), Direction: NORTH
+2025-07-23 01:05:21,193 - Robot TURN_RIGHT - Position: (5, 6), Direction: EAST
+2025-07-23 01:05:21,448 - Hit wall at (6, 6) \u2192 Took diversion
+2025-07-23 01:05:21,449 - Robot TURN_RIGHT - Position: (5, 6), Direction: SOUTH
+2025-07-23 01:05:22,061 - Robot MOVE_FORWARD - Position: (5, 5), Direction: SOUTH
+2025-07-23 01:05:22,421 - Robot MOVE_FORWARD - Position: (5, 4), Direction: SOUTH
+2025-07-23 01:05:22,778 - Robot MOVE_FORWARD - Position: (5, 3), Direction: SOUTH
+2025-07-23 01:05:22,879 - Robot TURN_RIGHT - Position: (5, 3), Direction: WEST
+2025-07-23 01:05:23,392 - Robot MOVE_FORWARD - Position: (4, 3), Direction: WEST
+2025-07-23 01:05:23,495 - Hit wall at (3, 3) \u2192 Took diversion
+2025-07-23 01:05:23,496 - Robot TURN_RIGHT - Position: (4, 3), Direction: NORTH
+2025-07-23 01:05:24,110 - Robot MOVE_FORWARD - Position: (4, 4), Direction: NORTH
+2025-07-23 01:05:24,467 - Robot MOVE_FORWARD - Position: (4, 5), Direction: NORTH
+2025-07-23 01:05:24,828 - Robot MOVE_FORWARD - Position: (4, 6), Direction: NORTH
+2025-07-23 01:05:24,929 - Robot TURN_RIGHT - Position: (4, 6), Direction: EAST
+2025-07-23 01:05:25,446 - Robot MOVE_FORWARD - Position: (5, 6), Direction: EAST
+2025-07-23 01:05:25,548 - Hit wall at (6, 6) \u2192 Took diversion
+2025-07-23 01:05:25,549 - Robot TURN_RIGHT - Position: (5, 6), Direction: SOUTH
+2025-07-23 01:05:26,164 - Robot MOVE_FORWARD - Position: (5, 5), Direction: SOUTH
+2025-07-23 01:05:26,525 - Robot MOVE_FORWARD - Position: (5, 4), Direction: SOUTH
+2025-07-23 01:05:26,883 - Robot MOVE_FORWARD - Position: (5, 3), Direction: SOUTH
+2025-07-23 01:05:27,244 - Robot MOVE_FORWARD - Position: (5, 2), Direction: SOUTH
+2025-07-23 01:05:27,345 - Robot TURN_RIGHT - Position: (5, 2), Direction: WEST
+2025-07-23 01:05:34,082 - Robot MOVE_FORWARD - Position: (5, 6), Direction: NORTH
+2025-07-23 01:05:34,437 - Robot MOVE_FORWARD - Position: (5, 7), Direction: NORTH
+2025-07-23 01:05:34,791 - Robot MOVE_FORWARD - Position: (5, 8), Direction: NORTH
+2025-07-23 01:05:34,892 - Robot TURN_RIGHT - Position: (5, 8), Direction: EAST
+2025-07-23 01:05:35,404 - Robot MOVE_FORWARD - Position: (6, 8), Direction: EAST
+2025-07-23 01:05:35,759 - Robot MOVE_FORWARD - Position: (7, 8), Direction: EAST
+2025-07-23 01:05:36,115 - Robot MOVE_FORWARD - Position: (8, 8), Direction: EAST
+2025-07-23 01:05:36,217 - Robot TURN_RIGHT - Position: (8, 8), Direction: SOUTH
+2025-07-23 01:05:36,729 - Robot MOVE_FORWARD - Position: (8, 7), Direction: SOUTH
+2025-07-23 01:05:37,087 - Robot MOVE_FORWARD - Position: (8, 6), Direction: SOUTH
+2025-07-23 01:05:37,445 - Robot MOVE_FORWARD - Position: (8, 5), Direction: SOUTH
+2025-07-23 01:05:37,547 - Robot TURN_RIGHT - Position: (8, 5), Direction: WEST
+2025-07-23 01:05:38,061 - Robot MOVE_FORWARD - Position: (7, 5), Direction: WEST
+2025-07-23 01:05:38,417 - Robot MOVE_FORWARD - Position: (6, 5), Direction: WEST
+2025-07-23 01:05:38,778 - Robot MOVE_FORWARD - Position: (5, 5), Direction: WEST
+2025-07-23 01:05:38,880 - Robot TURN_RIGHT - Position: (5, 5), Direction: NORTH
+2025-07-23 01:05:45,616 - Robot MOVE_FORWARD - Position: (4, 8), Direction: SOUTH
+2025-07-23 01:05:46,170 - Robot MOVE_FORWARD - Position: (4, 7), Direction: SOUTH
+2025-07-23 01:05:46,471 - Robot TURN_RIGHT - Position: (4, 7), Direction: WEST
+2025-07-23 01:05:47,286 - Robot MOVE_FORWARD - Position: (3, 7), Direction: WEST
+2025-07-23 01:05:47,841 - Robot MOVE_FORWARD - Position: (2, 7), Direction: WEST
+2025-07-23 01:05:48,398 - Robot MOVE_FORWARD - Position: (1, 7), Direction: WEST
+2025-07-23 01:05:48,699 - Robot TURN_LEFT - Position: (1, 7), Direction: SOUTH
+2025-07-23 01:05:49,512 - Robot MOVE_FORWARD - Position: (1, 6), Direction: SOUTH
+2025-07-23 01:05:49,814 - Hit wall at (1, 5) \u2192 Took diversion
+2025-07-23 01:05:49,815 - Robot TURN_RIGHT - Position: (1, 6), Direction: WEST
+2025-07-23 01:05:50,073 - Robot TURN_RIGHT - Position: (1, 6), Direction: NORTH
+2025-07-23 01:05:50,883 - Robot MOVE_FORWARD - Position: (1, 7), Direction: NORTH
+2025-07-23 01:05:51,440 - Robot MOVE_FORWARD - Position: (1, 8), Direction: NORTH
+2025-07-23 01:05:51,740 - Robot TURN_LEFT - Position: (1, 8), Direction: WEST
+2025-07-23 01:05:52,295 - Robot TURN_RIGHT - Position: (1, 8), Direction: NORTH
+2025-07-23 01:05:53,106 - Robot MOVE_FORWARD - Position: (1, 9), Direction: NORTH
+2025-07-23 01:05:53,661 - Robot MOVE_FORWARD - Position: (1, 10), Direction: NORTH
+2025-07-23 01:05:58,420 - Robot MOVE_FORWARD - Position: (6, 7), Direction: NORTH
+2025-07-23 01:05:58,675 - Robot MOVE_FORWARD - Position: (6, 8), Direction: NORTH
+2025-07-23 01:05:58,676 - Robot TURN_RIGHT - Position: (6, 8), Direction: EAST
+2025-07-23 01:05:59,184 - Robot MOVE_FORWARD - Position: (7, 8), Direction: EAST
+2025-07-23 01:05:59,438 - Robot MOVE_FORWARD - Position: (8, 8), Direction: EAST
+2025-07-23 01:05:59,440 - Robot TURN_RIGHT - Position: (8, 8), Direction: SOUTH
+2025-07-23 01:05:59,949 - Robot MOVE_FORWARD - Position: (8, 7), Direction: SOUTH

@@ -12,12 +12,16 @@ except ImportError:
     PIL_AVAILABLE = False
 
 class RobotSimulator:
-    def __init__(self, width: int = 10, height: int = 10, cell_size: int = 50, random_robot: bool = False):
+    def __init__(self, width: int = 10, height: int = 10, cell_size: int = 50):
         self.width = width
         self.height = height
         self.cell_size = cell_size
         self.walls = set()
-        self.robot = Robot(simulator=self, random_start=random_robot)  # Pass random_start parameter
+        
+        # Robot starts at center by default
+        center_x = width // 2
+        center_y = height // 2
+        self.robot = Robot(center_x, center_y, simulator=self)
         self.robot_trace: List[Tuple[int, int]] = []  # Track robot movement path
         
         # Animation variables
@@ -27,19 +31,44 @@ class RobotSimulator:
         
         # Create main window FIRST (required for PhotoImage)
         self.root = tk.Tk()
-        self.root.title("Robot Behavior Simulator")
+        self.root.title("🤖 Robot Behavior Simulator")
+        self.root.configure(bg="white")  # Clean white background
+        
+        # Create title frame
+        self.title_frame = tk.Frame(self.root, bg="white", height=60)
+        self.title_frame.pack(fill=tk.X, padx=10, pady=5)
+        self.title_frame.pack_propagate(False)
+        
+        # Title label (will be set later)
+        self.title_label = tk.Label(
+            self.title_frame, 
+            text="Robot Behavior Simulator",
+            font=("Arial", 16, "bold"),
+            fg="#2563eb",  # Blue text
+            bg="white",
+            pady=15
+        )
+        self.title_label.pack()
         
         # Load dog image AFTER root window is created
         self.dog_image = None
         self._load_dog_image()
         
-        # Create canvas
+        # Create canvas with clean white styling
         canvas_width = width * cell_size
         canvas_height = height * cell_size
-        self.canvas = tk.Canvas(self.root, width=canvas_width, height=canvas_height, bg="white")
-        self.canvas.pack()
+        self.canvas = tk.Canvas(
+            self.root, 
+            width=canvas_width, 
+            height=canvas_height, 
+            bg="white",  # Clean white background
+            highlightthickness=2,
+            highlightbackground="#e5e7eb",  # Light gray border
+            relief="solid"
+        )
+        self.canvas.pack(padx=10, pady=(0, 10))
         
-        # Draw grid
+        # Draw clean grid
         self._draw_grid()
         
         # Initialize display position to robot's actual position
@@ -89,11 +118,9 @@ class RobotSimulator:
                     self.dog_images[Direction.WEST] = ImageTk.PhotoImage(pil_image.rotate(90, expand=True))   # 90° counter-clockwise
                     
                     self.dog_image = self.dog_images[Direction.NORTH]  # Default image
-                    print(f"✅ Dog image loaded and rotated from: {path}")
                     return
             
-            print("ℹ️ Dog image not found. Using default triangle.")
-            print("   Place dog.png in assets/ folder to use custom image.")
+            # Dog image not found, will use default triangle shape
             self.dog_image = None
             self.dog_images = {}
             
@@ -103,16 +130,21 @@ class RobotSimulator:
             self.dog_images = {}
     
     def _draw_grid(self):
-        """Draw the grid on the canvas."""
-        # Draw vertical lines
+        """Draw a clean, simple grid on the canvas."""
+        # Draw clean grid lines
         for i in range(self.width + 1):
             x = i * self.cell_size
-            self.canvas.create_line(x, 0, x, self.height * self.cell_size, fill="gray", width=1)
-            
-        # Draw horizontal lines
-        for i in range(self.height + 1):
-            y = i * self.cell_size
-            self.canvas.create_line(0, y, self.width * self.cell_size, y, fill="gray", width=1)
+            self.canvas.create_line(
+                x, 0, x, self.height * self.cell_size,
+                fill="#d1d5db", width=1  # Light gray lines
+            )
+        
+        for j in range(self.height + 1):
+            y = j * self.cell_size
+            self.canvas.create_line(
+                0, y, self.width * self.cell_size, y,
+                fill="#d1d5db", width=1  # Light gray lines
+            )
     
     def _draw_robot(self):
         """Draw the robot (dog) on the canvas using smooth display position."""
@@ -204,7 +236,7 @@ class RobotSimulator:
             self.canvas.create_polygon(points, fill="blue", outline="darkblue", width=2, tags="robot")
     
     def _draw_trace(self):
-        """Draw the movement trace as red lines connecting robot positions."""
+        """Draw a simple movement trace."""
         self.canvas.delete("trace")  # Remove previous trace
         
         if len(self.robot_trace) < 2:
@@ -220,11 +252,11 @@ class RobotSimulator:
             curr_canvas_x = (curr_x + 0.5) * self.cell_size  
             curr_canvas_y = ((self.height - 1 - curr_y) + 0.5) * self.cell_size
             
-            # Draw line connecting positions
+            # Draw simple trace line
             self.canvas.create_line(
                 prev_canvas_x, prev_canvas_y,
                 curr_canvas_x, curr_canvas_y,
-                fill="red", width=3, tags="trace"
+                fill="#3b82f6", width=2, tags="trace"  # Simple blue line
             )
 
     def add_wall(self, x: int, y: int):
@@ -234,16 +266,18 @@ class RobotSimulator:
             self._draw_walls()
     
     def _draw_walls(self):
-        """Draw all walls on the canvas."""
+        """Draw simple walls on the canvas."""
         self.canvas.delete("wall")  # Remove previous walls
         for x, y in self.walls:
             cell_x = x * self.cell_size
             cell_y = (self.height - 1 - y) * self.cell_size
+            
+            # Draw simple wall
             self.canvas.create_rectangle(
-                cell_x + 2, cell_y + 2,
-                cell_x + self.cell_size - 2,
-                cell_y + self.cell_size - 2,
-                fill="gray", outline="black", width=2, tags="wall"
+                cell_x + 1, cell_y + 1,
+                cell_x + self.cell_size - 1,
+                cell_y + self.cell_size - 1,
+                fill="#374151", outline="#1f2937", width=2, tags="wall"  # Gray wall
             )
     
     def animate_movement(self, start_pos, end_pos):
@@ -323,6 +357,12 @@ class RobotSimulator:
         self._draw_robot()  # Draw robot on top
         self.root.update()
         time.sleep(0.25)  # Standard timing for non-movement updates
+    
+    def set_title_label(self, title: str):
+        """Set a title label above the canvas."""
+        if hasattr(self, 'title_label'):
+            self.title_label.config(text=title)
+        self.root.update()
     
     def run(self):
         """Start the simulation."""

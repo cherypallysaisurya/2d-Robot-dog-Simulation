@@ -4,6 +4,8 @@
 from robot_behavior.behaviors.api import RobotProgram, run_prime_bot
 from robot_behavior.behaviors.basic import move_if_prime, turn_if_even
 
+# TIP: You can now create custom wall patterns! See examples/custom_walls_example.py
+
 # ==============================================================================
 #                           YOUR ROBOT PLAYGROUND
 # ==============================================================================
