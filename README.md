@@ -1,159 +1,81 @@
-# 🤖 Robot Behavior Simulator
+# 🤖 Robot Behavior Simulator - Quick Guide for Educators
 
-An educational Python package that teaches programming concepts through a visual robot simulation. Perfect for beginners learning their first programming concepts!
-
-![Python Version](https://img.shields.io/badge/python-3.7%2B-blue) ![License](https://img.shields.io/badge/license-MIT-green) ![Education](https://img.shields.io/badge/purpose-education-orange)
-
-## 🎯 What This Package Does
-
-The Robot Behavior Simulator creates an interactive visual environment where students control a robot (displayed as a blue triangle arrow) moving around a grid. As the robot moves, it draws a **red trail** showing its path, making programming concepts immediately visible and engaging.
-
-### 🌟 Key Features
-
-- **🤖 Visual Robot**: Blue triangle arrow that points east and moves smoothly
-- **🔴 Red Trail Visualization**: See exactly where your robot has been
-- **🧱 Obstacles & Walls**: Navigate around barriers and solve maze challenges  
-- **⚡ Immediate Feedback**: Instant visual results help students understand their code
-- **📚 Educational Focus**: Designed specifically for teaching programming fundamentals
-
-## 🚀 Quick Installation
-
-Install the package using pip:
-
+## 📦 **Installation**
 ```bash
-pip install robot-behavior-simulator
-```
+pip install --index-url https://test.pypi.org/simple/ robot-behavior-simulator
+🎯 What It Does
+Educational Python package for teaching programming through visual robot simulation. Students write code to move a triangle robot through a grid world, creating red trails and navigating obstacles.
 
-## 🎮 Basic Usage
-
-### Simple Movement Example
-
-```python
+🚀 Quick Test
+bash
+Copy
+Edit
+robot-demo  # Run built-in demonstration
+📝 Basic Student Code
+python
+Copy
+Edit
 from robot_behavior import create_robot_program
 
-# Create a 5x5 grid with robot starting at position (0, 0)
+# Create 5x5 world, robot starts at (0,0)
 program = create_robot_program(5, 5, 0, 0)
 
-# Add some walls to make it interesting
-program.add_wall(2, 0)
-program.add_wall(3, 1)
+# Add walls
+program.add_wall(2, 2)
+program.add_wall(3, 2)
 
-# Move the robot and watch the red trail appear!
-program.robot.move('right')  # Move east
-program.robot.move('right')  # Move east again  
-program.robot.move('up')     # Move north
-program.robot.move('backward')  # Move west (opposite of facing direction)
+# Move robot
+program.robot.move('right')
+program.robot.move('right')
+program.robot.move('up')
+program.robot.move('up')
 
-# Start the visual display
-program.start_with_auto_close(5)  # Close after 5 seconds
-```
+# Show visual result
+program.start()
+🎓 Educational Benefits
+Visual Learning: Immediate feedback with animated robot and red trail
 
-### Fun Pattern Example
+Spatial Reasoning: Grid-based coordinate system
 
-```python
-from robot_behavior import create_robot_program
+Problem Solving: Navigate mazes and obstacles
 
-# Create robot world
-program = create_robot_program(8, 8, 1, 1)
+Programming Concepts: Sequencing, loops, conditionals
 
-# Draw a square pattern
-movements = ['right', 'right', 'up', 'up', 'left', 'left', 'down', 'down']
-for direction in movements:
-    success = program.robot.move(direction)
-    if not success:
-        print(f"Can't move {direction} - hit a wall!")
+🖥️ Platform Support
+✅ Windows ✅ macOS ✅ Linux
 
-program.start_with_auto_close(10)
-```
+📊 Visual Output
+Students see:
 
-## 🎓 Educational Concepts Taught
+Blue triangle robot moving on grid
 
-This simulator helps students learn:
+Red trail showing complete path
 
-### 1. **Sequential Programming**
-```python
-robot.move('right')  # Step 1
-robot.move('up')     # Step 2  
-robot.move('left')   # Step 3
-# Each command executes in order
-```
+Black walls as obstacles
 
-### 2. **Conditional Logic**
-```python
-success = robot.move('right')
-if success:
-    print("Robot moved successfully!")
-else:
-    print("Hit a wall - need to try different direction")
-```
+Interactive GUI with reset/close buttons
 
-### 3. **Loops and Patterns**
-```python
-# Draw a square
-for side in range(4):
-    for step in range(3):
-        robot.move('right')
-    # Change direction for next side
-```
+🎯 Classroom Activities
+Draw shapes with robot movements
 
-### 4. **Problem Solving**
-Students learn to navigate mazes, avoid obstacles, and plan efficient paths.
+Solve maze challenges
 
-## 📚 Complete API Reference
+Create geometric patterns
 
-### Core Functions
-- `create_robot_program(width, height, start_x, start_y)` - Create robot world
-- `robot.move(direction)` - Move robot ('up', 'down', 'left', 'right', 'backward')
-- `robot.get_position()` - Get current position
-- `program.add_wall(x, y)` - Add wall/obstacle
-- `program.start()` - Start visual simulator
+Coordinate-based treasure hunts
 
-### Available Directions
-- `'up'` - Move north (y + 1)
-- `'down'` - Move south (y - 1)  
-- `'left'` - Move west (x - 1)
-- `'right'` - Move east (x + 1)
-- `'backward'` - Move opposite to facing direction (west, since dog faces east)
+📞 Support
+Package: https://test.pypi.org/project/robot-behavior-simulator/
 
-## 🎯 Perfect for Learning
+GitHub: https://github.com/cherypallysaisurya/2d-Robot-dog-Simulation
 
-### For Students:
-- **Visual feedback** makes abstract concepts concrete
-- **Immediate results** keep engagement high
-- **Error handling** teaches debugging skills
-- **Creative freedom** allows artistic expression through code
 
-### For Educators:
-- **Minimal setup** - just `pip install` and go
-- **Progressive complexity** - start simple, add challenges
-- **Clear visual results** for easy assessment
-- **Engaging format** keeps students motivated
 
-## 🔧 Requirements
 
-- Python 3.7 or higher
-- Pillow (for image handling) - automatically installed
 
-## 📖 More Examples
 
-Check out the `examples/` directory for more educational examples:
-- Basic movement patterns
-- Maze solving algorithms
-- Creative drawing with code
-- Problem-solving challenges
 
-## 🤝 Contributing
 
-This project is designed for educational use. Contributions that enhance the learning experience are welcome!
 
-## 📄 License
 
-MIT License - feel free to use in educational settings.
-
-## 👨‍💻 Authors
-
-Robot Behavior Simulator Team - Dedicated to making programming education visual and engaging.
-
----
-
-**Happy Coding! 🚀** Let's make programming education visual, interactive, and fun!
+Ask ChatGPT
