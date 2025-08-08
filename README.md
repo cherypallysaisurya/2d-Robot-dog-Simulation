@@ -1,191 +1,159 @@
-# 🤖 Robot Behavior Framework
+# 🤖 Robot Behavior Simulator
 
-A simple, educational 2D robot simulation library for learning programming concepts through visual robot behaviors.
+An educational Python package that teaches programming concepts through a visual robot simulation. Perfect for beginners learning their first programming concepts!
 
-**Use it like any Python library:**
-```python
-from robot_behavior import *
-run_prime_bot([2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
-```
+![Python Version](https://img.shields.io/badge/python-3.7%2B-blue) ![License](https://img.shields.io/badge/license-MIT-green) ![Education](https://img.shields.io/badge/purpose-education-orange)
 
-## ✨ Features
+## 🎯 What This Package Does
 
-- 🎮 **Easy to use** - Import like numpy or matplotlib
-- 🎯 **Educational** - Focus on logic, not complex setup  
-- 🎨 **Visual** - See your code come to life with moving robots
-- 🚧 **Obstacle-aware** - Robots avoid walls and boundaries
-- 📝 **Well-documented** - Clear examples and templates
-- 🌐 **Cross-platform** - Works on Windows, Mac, Linux
-- 🔧 **Extensible** - Easy to add new behaviors
-- 🎲 **Randomization** - Random start positions and wall patterns
-- 🏗️ **Custom Walls** - Students can design their own obstacle patterns
+The Robot Behavior Simulator creates an interactive visual environment where students control a robot (displayed as a blue triangle arrow) moving around a grid. As the robot moves, it draws a **red trail** showing its path, making programming concepts immediately visible and engaging.
 
-## 🚀 Quick Start
+### 🌟 Key Features
 
-### For Students - Try These Examples:
+- **🤖 Visual Robot**: Blue triangle arrow that points east and moves smoothly
+- **🔴 Red Trail Visualization**: See exactly where your robot has been
+- **🧱 Obstacles & Walls**: Navigate around barriers and solve maze challenges  
+- **⚡ Immediate Feedback**: Instant visual results help students understand their code
+- **📚 Educational Focus**: Designed specifically for teaching programming fundamentals
+
+## 🚀 Quick Installation
+
+Install the package using pip:
+
 ```bash
-# Clone or download the project
-git clone https://github.com/cherypallysaisurya/2d-Robot-dog-Simulation.git
-cd 2d-Robot-dog-Simulation
-
-# Run the main example to see all robots in action
-python examples/student_example.py
-
-# Try the template for creating your own robots
-python examples/student_template.py
-
-# Advanced: Custom wall patterns
-python examples/custom_walls_example.py
+pip install robot-behavior-simulator
 ```
 
-### For Programmers - Use as Library:
-```bash
-pip install git+https://github.com/cherypallysaisurya/2d-Robot-dog-Simulation.git
-```
+## 🎮 Basic Usage
 
-### Use It
+### Simple Movement Example
+
 ```python
-from robot_behavior import *
+from robot_behavior import create_robot_program
 
-# Pre-built behaviors
-run_prime_bot([2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
-run_spiral_bot(5)
-run_square_bot(3)
+# Create a 5x5 grid with robot starting at position (0, 0)
+program = create_robot_program(5, 5, 0, 0)
 
-# Custom robot
-program = RobotProgram()
-program.add_wall(3, 3)
-for i in range(10):
-    if i % 2 == 0:
-        program.robot.move_forward()
-    else:
-        program.robot.turn_right()
-program.start()
+# Add some walls to make it interesting
+program.add_wall(2, 0)
+program.add_wall(3, 1)
+
+# Move the robot and watch the red trail appear!
+program.robot.move('right')  # Move east
+program.robot.move('right')  # Move east again  
+program.robot.move('up')     # Move north
+program.robot.move('backward')  # Move west (opposite of facing direction)
+
+# Start the visual display
+program.start_with_auto_close(5)  # Close after 5 seconds
 ```
 
-## 📚 Available Functions
+### Fun Pattern Example
 
-### 🎯 Pre-built Robot Behaviors
-| Function | Description | Example |
-|----------|-------------|---------|
-| `run_prime_bot(numbers)` | Robot moves for prime numbers | `run_prime_bot([2,3,4,5,6,7])` |
-| `run_even_odd_bot(numbers)` | Robot turns based on even/odd | `run_even_odd_bot([1,2,3,4,5])` |
-| `run_spiral_bot(steps)` | Robot moves in spiral pattern | `run_spiral_bot(5)` |
-| `run_square_bot(size)` | Robot moves in square pattern | `run_square_bot(4)` |
-
-### 🔧 Building Blocks for Custom Robots
-| Function | Description |
-|----------|-------------|
-| `RobotProgram()` | Create a new robot simulation |
-| `program.robot.move_forward()` | Move robot forward |
-| `program.robot.turn_left()` | Turn robot left |
-| `program.robot.turn_right()` | Turn robot right |
-| `program.add_wall(x, y)` | Add obstacle at position |
-| `is_prime(number)` | Check if number is prime |
-
-## 🎓 Learning Examples
-
-### Beginner: Use Pre-built Functions
 ```python
-from robot_behavior import *
+from robot_behavior import create_robot_program
 
-# Test different number sequences
-run_prime_bot([2, 3, 5, 7, 11, 13, 17, 19])
-run_even_odd_bot([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+# Create robot world
+program = create_robot_program(8, 8, 1, 1)
+
+# Draw a square pattern
+movements = ['right', 'right', 'up', 'up', 'left', 'left', 'down', 'down']
+for direction in movements:
+    success = program.robot.move(direction)
+    if not success:
+        print(f"Can't move {direction} - hit a wall!")
+
+program.start_with_auto_close(10)
 ```
 
-### Intermediate: Create Custom Logic
+## 🎓 Educational Concepts Taught
+
+This simulator helps students learn:
+
+### 1. **Sequential Programming**
 ```python
-from robot_behavior import *
-
-program = RobotProgram(width=15, height=15)
-program.add_wall(5, 5)
-program.add_wall(6, 6)
-
-# Custom logic: Move for multiples of 3
-for num in [3, 6, 9, 12, 15, 18]:
-    if num % 3 == 0:
-        program.robot.move_forward()
-    else:
-        program.robot.turn_right()
-
-program.start()
+robot.move('right')  # Step 1
+robot.move('up')     # Step 2  
+robot.move('left')   # Step 3
+# Each command executes in order
 ```
 
-### Advanced: Build New Behaviors
+### 2. **Conditional Logic**
 ```python
-from robot_behavior import *
-
-def fibonacci_robot():
-    program = RobotProgram(width=20, height=20)
-    
-    # Generate Fibonacci sequence
-    a, b = 1, 1
-    for i in range(8):
-        # Move 'a' steps
-        for _ in range(min(a, 5)):
-            program.robot.move_forward()
-        program.robot.turn_right()
-        a, b = b, a + b
-    
-    program.start()
-
-fibonacci_robot()
+success = robot.move('right')
+if success:
+    print("Robot moved successfully!")
+else:
+    print("Hit a wall - need to try different direction")
 ```
 
-## 💡 Project Ideas
+### 3. **Loops and Patterns**
+```python
+# Draw a square
+for side in range(4):
+    for step in range(3):
+        robot.move('right')
+    # Change direction for next side
+```
 
-- **📊 Math Visualizer**: Robot that demonstrates number sequences
-- **🎮 Maze Solver**: Robot that navigates through obstacles  
-- **🎨 Pattern Drawer**: Robot that draws shapes and letters
-- **🧮 Algorithm Demo**: Robot that shows sorting or searching
-- **🎯 Custom Logic**: Robot that responds to your own rules
+### 4. **Problem Solving**
+Students learn to navigate mazes, avoid obstacles, and plan efficient paths.
 
-## 📁 Example Files
+## 📚 Complete API Reference
 
-- [`examples/library_usage_examples.py`](examples/library_usage_examples.py) - Complete usage examples
-- [`examples/student_playground.py`](examples/student_playground.py) - Template for experimentation
-- [`LIBRARY_USAGE.md`](LIBRARY_USAGE.md) - Detailed documentation
+### Core Functions
+- `create_robot_program(width, height, start_x, start_y)` - Create robot world
+- `robot.move(direction)` - Move robot ('up', 'down', 'left', 'right', 'backward')
+- `robot.get_position()` - Get current position
+- `program.add_wall(x, y)` - Add wall/obstacle
+- `program.start()` - Start visual simulator
 
-## 🎯 Educational Use
+### Available Directions
+- `'up'` - Move north (y + 1)
+- `'down'` - Move south (y - 1)  
+- `'left'` - Move west (x - 1)
+- `'right'` - Move east (x + 1)
+- `'backward'` - Move opposite to facing direction (west, since dog faces east)
 
-Perfect for:
-- **Programming courses** - Visualize logic concepts
-- **Algorithm classes** - Demonstrate pathfinding, patterns
-- **Math classes** - Explore number sequences visually
-- **Self-learning** - Fun way to practice Python
+## 🎯 Perfect for Learning
 
-## 🛠️ Requirements
+### For Students:
+- **Visual feedback** makes abstract concepts concrete
+- **Immediate results** keep engagement high
+- **Error handling** teaches debugging skills
+- **Creative freedom** allows artistic expression through code
 
-- Python 3.7+
-- Tkinter (included with Python)
-- numpy
+### For Educators:
+- **Minimal setup** - just `pip install` and go
+- **Progressive complexity** - start simple, add challenges
+- **Clear visual results** for easy assessment
+- **Engaging format** keeps students motivated
 
-No complex dependencies, game engines, or setup required!
+## 🔧 Requirements
 
-## 📖 Documentation
+- Python 3.7 or higher
+- Pillow (for image handling) - automatically installed
 
-- [Student Setup Guide](STUDENT_SETUP_GUIDE.md) - Complete installation instructions
-- [Library Usage](LIBRARY_USAGE.md) - Detailed function documentation  
-- [Distribution Guide](DISTRIBUTION_GUIDE.md) - How to share with others
+## 📖 More Examples
+
+Check out the `examples/` directory for more educational examples:
+- Basic movement patterns
+- Maze solving algorithms
+- Creative drawing with code
+- Problem-solving challenges
 
 ## 🤝 Contributing
 
-This is an educational project. Students are encouraged to:
-1. Fork the repository
-2. Add new robot behaviors
-3. Share their creations
-4. Help improve documentation
+This project is designed for educational use. Contributions that enhance the learning experience are welcome!
 
 ## 📄 License
 
-MIT License - feel free to use for educational purposes!
+MIT License - feel free to use in educational settings.
+
+## 👨‍💻 Authors
+
+Robot Behavior Simulator Team - Dedicated to making programming education visual and engaging.
 
 ---
 
-**🎉 Start coding your robots today!**
-
-```python
-from robot_behavior import *
-run_prime_bot([2, 3, 5, 7, 11, 13, 17, 19, 23])
-```
+**Happy Coding! 🚀** Let's make programming education visual, interactive, and fun!

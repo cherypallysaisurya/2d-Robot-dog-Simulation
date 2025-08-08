@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "robot-behavior-simulator"
+version = "1.0.1"
+description = "Educational robot simulation framework for teaching programming concepts through visual interaction"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    {name = "Robot Behavior Team", email = "cherypallysaisurya@gmail.com"}
+]
+maintainers = [
+    {name = "Robot Behavior Team", email = "cherypallysaisurya@gmail.com"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Education",
+    "Topic :: Education",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+keywords = [
+    "education", "programming", "robot", "simulation", "learning",
+    "beginner", "visual", "interactive", "tkinter", "maze"
+]
+dependencies = [
+    "Pillow>=8.0.0",
+]
+requires-python = ">=3.7"
+
+[project.urls]
+Homepage = "https://github.com/cherypallysaisurya/2d-Robot-dog-Simulation"
+Documentation = "https://github.com/cherypallysaisurya/2d-Robot-dog-Simulation#readme"
+Repository = "https://github.com/cherypallysaisurya/2d-Robot-dog-Simulation.git"
+"Bug Tracker" = "https://github.com/cherypallysaisurya/2d-Robot-dog-Simulation/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "build>=0.8.0",
+    "twine>=4.0.0",
+]
+
+[project.scripts]
+robot-demo = "robot_behavior.minimal_api:run_demo_example"
+
+[tool.setuptools]
+packages = ["robot_behavior", "robot_behavior.core", "robot_behavior.simulator", "robot_behavior.behaviors"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+robot_behavior = ["assets/*.png", "assets/*.jpg", "assets/README.md"]

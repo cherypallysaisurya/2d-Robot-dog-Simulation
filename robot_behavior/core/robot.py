@@ -1,104 +1,183 @@
-from dataclasses import dataclass
-from typing import List, Tuple
-import logging
 from enum import Enum
-import time
+from typing import Tuple, Dict, Any, List
 
 class Direction(Enum):
-    NORTH = 0
-    EAST = 1
-    SOUTH = 2
-    WEST = 3
+    UP = "up"
+    DOWN = "down" 
+    LEFT = "left"
+    RIGHT = "right"
+    BACKWARD = "backward"  # Move in opposite direction (west, since dog faces east)
 
-@dataclass
 class Position:
-    x: int
-    y: int
+    def __init__(self, x: int, y: int):
+        self.x = x
+        self.y = y
+    
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+    
+    def __str__(self):
+        return f"({self.x}, {self.y})"
 
 class Robot:
-    def __init__(self, x: int = None, y: int = None, direction: Direction = Direction.NORTH, simulator=None):
-        # If no position specified, start from center of grid
-        if x is None or y is None:
-            grid_size = 10  # Default grid size
-            if simulator:
-                grid_size = min(simulator.width, simulator.height)
-            center = grid_size // 2
-            self.position = Position(center, center)
-        else:
-            self.position = Position(x, y)
-            
-        self.direction = direction
-        self.movement_log = []
-        self.simulator = simulator  # Reference to simulator for wall info
+    """
+    Minimal Robot API for educational purposes.
+    
+    This robot can only move in four fixed directions and provides
+    strict obstacle detection. Students must implement all complex
+    behaviors using only these basic movement commands.
+    """
+    
+    def __init__(self, start_x: int = 0, start_y: int = 0):
+        self.start_position = Position(start_x, start_y)
+        self.position = Position(start_x, start_y)
+        self.grid_width = 10
+        self.grid_height = 10
+        self.walls = set()
+        self.move_log = []
+        self._simulation_stopped = False
+    
+    def get_position(self) -> Position:
+        """Get current robot position."""
+        return self.position
+    
+    def move(self, direction: str) -> bool:
+        """
+        Move robot one cell in the specified direction.
         
-        logging.basicConfig(
-            filename='robot_movement.log',
-            level=logging.INFO,
-            format='%(asctime)s - %(message)s'
-        )
-    
-    def move_forward(self) -> bool:
-        """Move the robot one step forward in its current direction."""
-        new_pos = Position(self.position.x, self.position.y)
-        
-        if self.direction == Direction.NORTH:
-            new_pos.y += 1
-        elif self.direction == Direction.EAST:
-            new_pos.x += 1
-        elif self.direction == Direction.SOUTH:
-            new_pos.y -= 1
-        elif self.direction == Direction.WEST:
-            new_pos.x -= 1
+        Args:
+            direction: One of 'up', 'down', 'left', 'right'
             
-        if self._is_valid_position(new_pos):
-            self.position = new_pos
-            self._log_movement("MOVE_FORWARD")
-            if self.simulator:
-                self.simulator.update()
-            return True
-        else:
-            # Hit a wall or boundary - log and turn (no recursive move)
-            msg = f"Hit wall at ({new_pos.x}, {new_pos.y}) → Took diversion"
-            logging.info(msg)
-            self.movement_log.append((time.time(), msg, self.position, self.direction))
-            print(msg)
-            self.turn_right()  # Turn right when hitting obstacle
+        Returns:
+            bool: True if move successful, False if blocked or invalid
+            
+        Note: If move fails, robot position remains unchanged.
+        Simulation stops on illegal moves - students must handle this.
+        """
+        if self._simulation_stopped:
+            print("❌ Simulation stopped. Reset or fix movement logic.")
             return False
-    
-    def turn_left(self):
-        """Turn the robot 90 degrees to the left."""
-        self.direction = Direction((self.direction.value - 1) % 4)
-        self._log_movement("TURN_LEFT")
-        if self.simulator:
-            self.simulator.update()
-    
-    def turn_right(self):
-        """Turn the robot 90 degrees to the right."""
-        self.direction = Direction((self.direction.value + 1) % 4)
-        self._log_movement("TURN_RIGHT")
-        if self.simulator:
-            self.simulator.update()
-    
-    def _is_valid_position(self, pos: Position) -> bool:
-        """Check if the given position is valid (no walls/obstacles)."""
-        if self.simulator and (pos.x, pos.y) in self.simulator.walls:
+            
+        # Validate direction
+        try:
+            dir_enum = Direction(direction.lower())
+        except ValueError:
+            print(f"❌ Invalid direction: {direction}. Use: up, down, left, right, backward")
+            self._simulation_stopped = True
             return False
-        if pos.x < 0 or pos.x >= (self.simulator.width if self.simulator else 10):
+        
+        # Calculate new position
+        new_x, new_y = self.position.x, self.position.y
+        
+        if dir_enum == Direction.UP:
+            new_y += 1
+        elif dir_enum == Direction.DOWN:
+            new_y -= 1
+        elif dir_enum == Direction.LEFT:
+            new_x -= 1
+        elif dir_enum == Direction.RIGHT:
+            new_x += 1
+        elif dir_enum == Direction.BACKWARD:
+            # Since dog faces east, backward means move west (left)
+            new_x -= 1
+        
+        # Check boundaries
+        if new_x < 0 or new_x >= self.grid_width or new_y < 0 or new_y >= self.grid_height:
+            print(f"❌ Move {direction} blocked: boundary hit at ({new_x}, {new_y})")
+            self._log_move(direction, False, "boundary")
+            self._simulation_stopped = True
             return False
-        if pos.y < 0 or pos.y >= (self.simulator.height if self.simulator else 10):
+        
+        # Check walls/obstacles
+        if (new_x, new_y) in self.walls:
+            print(f"❌ Move {direction} blocked: obstacle at ({new_x}, {new_y})")
+            self._log_move(direction, False, "obstacle")
+            self._simulation_stopped = True
             return False
+        
+        # Move is valid - update position
+        old_pos = f"({self.position.x}, {self.position.y})"
+        self.position.x = new_x
+        self.position.y = new_y
+        new_pos = f"({self.position.x}, {self.position.y})"
+        
+        print(f"✅ Moved {direction}: {old_pos} → {new_pos}")
+        self._log_move(direction, True, "success")
         return True
     
-    def _log_movement(self, action: str):
-        """Log robot movements with timestamp."""
-        message = f"Robot {action} - Position: ({self.position.x}, {self.position.y}), Direction: {self.direction.name}"
-        logging.info(message)
-        self.movement_log.append((time.time(), action, self.position, self.direction))
+    def _log_move(self, direction: str, success: bool, reason: str):
+        """Log move attempt for debugging purposes."""
+        self.move_log.append({
+            'direction': direction,
+            'success': success,
+            'reason': reason,
+            'position_before': f"({self.position.x}, {self.position.y})",
+            'move_number': len(self.move_log) + 1
+        })
     
-    def get_position(self) -> Tuple[int, int]:
-        """Return the current position of the robot."""
-        return (self.position.x, self.position.y)
+    def reset_simulation(self):
+        """Reset robot to starting position and clear simulation stop."""
+        self.position = Position(self.start_position.x, self.start_position.y)
+        self.move_log.clear()
+        self._simulation_stopped = False
+        print(f"🔄 Robot reset to starting position: ({self.position.x}, {self.position.y})")
     
-    def get_direction(self) -> Direction:
-        """Return the current direction of the robot."""
-        return self.direction
+    def is_simulation_stopped(self) -> bool:
+        """Check if simulation is stopped due to illegal move."""
+        return self._simulation_stopped
+    
+    def get_move_log(self) -> List[Dict[str, Any]]:
+        """Get log of all move attempts for debugging."""
+        return self.move_log.copy()
+    
+    def set_grid_size(self, width: int, height: int):
+        """Set the grid boundaries."""
+        self.grid_width = width
+        self.grid_height = height
+        print(f"📐 Grid size set to {width} x {height}")
+    
+    def add_wall(self, x: int, y: int):
+        """Add a wall/obstacle at the specified position."""
+        if 0 <= x < self.grid_width and 0 <= y < self.grid_height:
+            self.walls.add((x, y))
+            print(f"🧱 Wall added at ({x}, {y})")
+        else:
+            print(f"❌ Cannot add wall at ({x}, {y}) - outside grid boundaries")
+    
+    def load_maze(self, layout: List[List[str]]):
+        """
+        Load a maze layout where:
+        '.' = empty space
+        '#' = wall/obstacle
+        'S' = start position (optional)
+        
+        Args:
+            layout: 2D list representing the maze
+        """
+        if not layout or not layout[0]:
+            print("❌ Invalid maze layout")
+            return
+            
+        self.grid_height = len(layout)
+        self.grid_width = len(layout[0])
+        self.walls.clear()
+        
+        # Find start position and walls
+        start_found = False
+        for y, row in enumerate(layout):
+            for x, cell in enumerate(row):
+                # Convert to our coordinate system (y=0 at bottom)
+                grid_y = self.grid_height - 1 - y
+                
+                if cell == '#':
+                    self.walls.add((x, grid_y))
+                elif cell == 'S' and not start_found:
+                    self.start_position = Position(x, grid_y)
+                    self.position = Position(x, grid_y)
+                    start_found = True
+        
+        self._simulation_stopped = False
+        self.move_log.clear()
+        
+        print(f"🗺️ Maze loaded: {self.grid_width}x{self.grid_height} with {len(self.walls)} walls")
+        print(f"🤖 Robot positioned at: ({self.position.x}, {self.position.y})")
