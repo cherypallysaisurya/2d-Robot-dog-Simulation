@@ -1,44 +1,19 @@
-#!/usr/bin/env python3
-"""
-Minimal API Examples - Educational Robot Programming
-
-This file demonstrates the basic usage of the minimal robot API.
-Perfect for students learning robot movement concepts.
-"""
-
 from robot_behavior.minimal_api import create_robot_program
-import time
 
 def simple_example():
+    """Simple robot movement example with visual feedback"""
     print("🤖 Simple Robot Example")
-    print("Moving robot right 2 times, then up 1 time")
+    print("Moving robot right 2 times, then up 2 times")
     print()
     
-    # Create robot world (5x5 grid, start at 0,0)
+    # Create robot world (5x5 grid, start at position 0,1)
     program = create_robot_program(5, 5, 0, 1)
     
-    # Add a few walls
+    # Add some walls to make it interesting
     program.add_wall(2, 0)
     program.add_wall(3, 1)
-
     
-    # Start the display
-    import threading
-    gui_thread = threading.Thread(target=program.start)
-    gui_thread.daemon = True
-    gui_thread.start()
-    time.sleep(1)
-    
-    
-    '''for i in range(10):
-        if i%2 == 0:
-            print(f"Step {i+1}: Moving right")
-            program.move_with_delay('right')
-        else:
-            print(f"Step {i+1}: Moving up")
-            program.move_with_delay('up')'''
-
-    # Move the robot
+    # Move the robot step by step
     print("Step 1: Moving right")
     program.move_with_delay('right')
     
@@ -51,8 +26,10 @@ def simple_example():
     print("Step 4: Moving up")
     program.move_with_delay('up')
     
+    print("Robot movement complete! Watch the red trail.")
     
-    time.sleep(5)
+    # Start the visual display
+    program.start()
 
 if __name__ == "__main__":
     simple_example()
