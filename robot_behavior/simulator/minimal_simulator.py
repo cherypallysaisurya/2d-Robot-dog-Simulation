@@ -262,6 +262,10 @@ class RobotProgram:
         self.robot = Robot(start_x, start_y)
         self.robot.grid_width = width
         self.robot.grid_height = height
+
+        # Prevent starting inside a wall (in case user pre-populates walls externally)
+        if (start_x, start_y) in getattr(self.robot, 'walls', set()):
+            raise ValueError(f"Robot cannot start inside a wall at ({start_x}, {start_y})")
         
         # Create simulator
         self.simulator = MinimalSimulator(self.robot)

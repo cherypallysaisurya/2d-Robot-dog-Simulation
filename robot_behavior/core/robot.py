@@ -138,9 +138,16 @@ class Robot:
     
     def add_wall(self, x: int, y: int):
         """Add a wall/obstacle at the specified position."""
+        # Prevent adding a wall where the robot currently starts or stands
+        if (x, y) == (self.position.x, self.position.y):
+            raise ValueError(f"Cannot place wall at robot position/start ({x}, {y})")
+
         if 0 <= x < self.grid_width and 0 <= y < self.grid_height:
-            self.walls.add((x, y))
-            print(f"🧱 Wall added at ({x}, {y})")
+            if (x, y) in self.walls:
+                print(f"⚠️ Wall already exists at ({x}, {y})")
+            else:
+                self.walls.add((x, y))
+                print(f"🧱 Wall added at ({x}, {y})")
         else:
             print(f"❌ Cannot add wall at ({x}, {y}) - outside grid boundaries")
     
@@ -175,6 +182,10 @@ class Robot:
                     self.start_position = Position(x, grid_y)
                     self.position = Position(x, grid_y)
                     start_found = True
+
+        # If start marker not provided, ensure start position not inside a wall
+        if not start_found and (self.start_position.x, self.start_position.y) in self.walls:
+            raise ValueError(f"Robot start position ({self.start_position.x}, {self.start_position.y}) is inside a wall in the maze definition")
         
         self._simulation_stopped = False
         self.move_log.clear()

@@ -51,6 +51,95 @@ def create_robot_program(width=10, height=10, start_x=0, start_y=0):
     """
     return RobotProgram(width, height, start_x, start_y)
 
+def run_with_visualization(program, moves_function, move_delay=1.5):
+    """
+    Run student code with automatic real-time visualization.
+    
+    Args:
+        program: Robot program created with create_robot_program()
+        moves_function: Function containing robot moves
+        move_delay: Delay in seconds between moves (default: 1.5)
+        
+    Example:
+        program = create_robot_program(5, 5, 0, 1)
+        def my_moves():
+            program.robot.move('right')
+            program.robot.move('up')
+        run_with_visualization(program, my_moves, move_delay=2.0)  # Slower
+        run_with_visualization(program, my_moves, move_delay=0.8)  # Faster
+    """
+    import threading
+    import platform
+    import time
+    from robot_behavior.core.robot import Position
+    
+    def enhanced_moves():
+        """Wrapper that adds simulator notifications to basic robot moves."""
+        # Wait longer for GUI to fully initialize
+        time.sleep(4.0)  # Increased wait time for GUI initialization
+        
+        # Wait until GUI is actually ready with better checking
+        max_wait = 15  # Maximum 15 seconds
+        wait_count = 0
+        while (not hasattr(program, 'simulator') or 
+               not program.simulator.running or 
+               not hasattr(program.simulator, 'canvas') or 
+               program.simulator.canvas is None) and wait_count < max_wait:
+            time.sleep(0.5)
+            wait_count += 0.5
+            print(f"🔄 Waiting for GUI initialization... ({wait_count}s)")
+        
+        if wait_count >= max_wait:
+            print("⚠️ GUI initialization timeout - proceeding anyway")
+        else:
+            print("✅ GUI is ready - starting movements")
+        
+        # Monkey patch the robot's move method to notify simulator
+        original_move = program.robot.move
+        
+        def move_with_notification(direction):
+            old_pos = Position(program.robot.position.x, program.robot.position.y)
+            success = original_move(direction)
+            new_pos = program.robot.get_position()
+            
+            # Notify simulator about the move - with better checking and move_delay
+            if hasattr(program, 'simulator') and program.simulator.running and hasattr(program.simulator, 'canvas') and program.simulator.canvas:
+                program.simulator.robot_moved(old_pos, new_pos, success, move_delay)
+                time.sleep(move_delay)  # Customizable delay
+            
+            return success
+        
+        program.robot.move = move_with_notification
+        
+        # Run the student's moves
+        moves_function()
+        
+        # Restore original move method
+        program.robot.move = original_move
+    
+    if platform.system() == "Darwin":  # macOS - no threading
+        print("🍎 macOS detected - running moves then showing result")
+        enhanced_moves()
+        program.start()
+    else:  # Windows/Linux - real-time with threading
+        print("🖥️ Windows/Linux detected - real-time visualization")
+        movement_thread = threading.Thread(target=enhanced_moves)
+        movement_thread.daemon = True
+        movement_thread.start()
+        program.start()
+
+def run_fast(program, moves_function):
+    """Run robot with fast movement (0.5s delay)"""
+    run_with_visualization(program, moves_function, move_delay=0.5)
+
+def run_slow(program, moves_function):
+    """Run robot with slow movement (2.5s delay)"""
+    run_with_visualization(program, moves_function, move_delay=2.5)
+
+def run_normal(program, moves_function):
+    """Run robot with normal movement (1.0s delay)"""
+    run_with_visualization(program, moves_function, move_delay=1.0)
+
 def load_maze_from_file(filename):
     """
     Load a maze layout from a text file.
@@ -81,8 +170,11 @@ __all__ = [
     'Robot',
     'Position', 
     'RobotProgram',
-    'MinimalSimulator',
     'create_robot_program',
+    'run_with_visualization',
+    'run_fast',
+    'run_slow', 
+    'run_normal',
     'load_maze_from_file',
     'run_demo_example',
     'SIMPLE_MAZE',

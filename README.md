@@ -18,13 +18,13 @@
 
 ## 🌟 What Makes This Special?
 
-Ever wondered how to make programming **visual**, **interactive**, and **fun**? Meet the Robot Behavior Simulator - where students control a cute triangle robot 🔺 that leaves colorful trails 🔴 as it navigates through grid worlds, creating instant visual feedback for every line of code!
+Ever wondered how to make programming **visual**, **interactive**, and **fun**? Meet the Robot Behavior Simulator - where students control a blue circular robot � that leaves colorful trails 🔴 as it navigates through grid worlds, creating instant visual feedback for every line of code!
 
 ### ✨ The Magic Behind It
 
 | Feature | Description | Why It Matters |
 |---------|-------------|----------------|
-| 🔺 **Visual Robot** | Blue triangle that moves and rotates | Students see their code come alive |
+| � **Visual Robot** | Blue circular icon that moves smoothly | Students see their code come alive |
 | 🔴 **Trail System** | Red path showing robot's journey | Visual debugging and path understanding |
 | 🧱 **Smart Obstacles** | Interactive walls and barriers | Problem-solving and logic building |
 | ⚡ **Instant Feedback** | Real-time visual results | Immediate understanding of cause & effect |

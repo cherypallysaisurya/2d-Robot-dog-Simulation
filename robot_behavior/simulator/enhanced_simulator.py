@@ -16,51 +16,48 @@ class EnhancedSimulator:
     - Auto-retry on wall collision with popup message
     - Proper timing for educational visualization
     """
-    
     def __init__(self, robot: Robot, cell_size: int = 60):
+        """Initialize simulator state and defer heavy GUI creation until start."""
+        # Core references
         self.robot = robot
         self.cell_size = cell_size
+
+        # GUI state placeholders (created later)
         self.running = False
         self.root = None
         self.canvas = None
+
+        # Visual elements (created after Tk root exists)
         self.robot_image = None
         self.robot_item = None
-        self.movement_trail = []  # Store path for red line trail
-        self.trail_lines = []     # Store line objects for trail
+
+        # Movement & trail tracking
+        self.movement_trail = []  # list of Position objects representing path
+        self.trail_lines = []     # list of canvas line ids
         self.animating = False
-        
-        # Don't create arrow yet - wait until after root window is created
-        self.robot_image = None
+        self._move_queue = []     # queued moves: (old_pos, new_pos, delay)
+
+        # (robot_image stays None until _create_robot_arrow runs)
     
     def _create_robot_arrow(self):
-        """Create a solid triangle arrow pointing east for the robot."""
+        """Create a simple solid circular robot icon with outline."""
         try:
-            # Create a solid triangle arrow image pointing east
-            size = int(self.cell_size * 0.7)
-            
-            # Create a new image with transparent background
-            arrow_image = Image.new('RGBA', (size, size), (255, 255, 255, 0))
-            draw = ImageDraw.Draw(arrow_image)
-            
-            # Calculate triangle coordinates (pointing east/right)
-            center_x, center_y = size // 2, size // 2
-            arrow_size = size * 0.6
-            
-            # Triangle pointing east (right) - simple triangle shape
-            triangle_points = [
-                (center_x - arrow_size//2, center_y - arrow_size//2),  # Left top
-                (center_x - arrow_size//2, center_y + arrow_size//2),  # Left bottom
-                (center_x + arrow_size//2, center_y),                   # Right point (tip)
-            ]
-            
-            # Draw solid blue triangle
-            draw.polygon(triangle_points, fill=(0, 100, 200, 255), outline=(0, 50, 150, 255))
-            
-            self.robot_image = ImageTk.PhotoImage(arrow_image)
-            print("▶️ Created solid east-facing triangle arrow for robot")
-            
+            # Circle diameter reduced for better spacing inside the cell
+            diameter = int(self.cell_size * 0.58)
+            img = Image.new('RGBA', (diameter, diameter), (255, 255, 255, 0))
+            draw = ImageDraw.Draw(img)
+
+            padding = max(2, diameter // 14)
+            bbox = [padding, padding, diameter - padding, diameter - padding]
+
+            fill_color = (59, 130, 246, 255)      # Primary blue
+            outline_color = (17, 94, 198, 255)    # Darker outline
+            draw.ellipse(bbox, fill=fill_color, outline=outline_color, width=max(2, diameter // 22))
+
+            self.robot_image = ImageTk.PhotoImage(img)
+            print("🔵 Created solid circular robot icon")
         except Exception as e:
-            print(f"⚠️ Error creating triangle arrow: {e}, using simple triangle")
+            print(f"⚠️ Error creating solid circle: {e}, falling back to text")
             self.robot_image = None
     
     def _setup_window(self):
@@ -233,30 +230,8 @@ class EnhancedSimulator:
     
     def _draw_movement_trail(self):
         """Draw red line trail showing robot's path (for initial setup only)."""
-        if len(self.movement_trail) < 2:
-            return
-        
-        # Only draw if no trail segments exist yet
-        existing_trail = self.canvas.find_withtag("trail")
-        if existing_trail:
-            return  # Trail already drawn in real-time
-        
-        # Draw lines between consecutive positions
-        for i in range(len(self.movement_trail) - 1):
-            start_pos = self.movement_trail[i]
-            end_pos = self.movement_trail[i + 1]
-            
-            # Convert to canvas coordinates
-            start_x = start_pos.x * self.cell_size + self.cell_size // 2
-            start_y = (self.robot.grid_height - 1 - start_pos.y) * self.cell_size + self.cell_size // 2
-            end_x = end_pos.x * self.cell_size + self.cell_size // 2
-            end_y = (self.robot.grid_height - 1 - end_pos.y) * self.cell_size + self.cell_size // 2
-            
-            # Draw red line
-            self.canvas.create_line(
-                start_x, start_y, end_x, end_y,
-                fill="#dc2626", width=4, capstyle=tk.ROUND, tags="trail"
-            )
+        # Skip drawing trail during real-time movement - trails are drawn individually
+        return
     
     def _draw_robot(self):
         """Draw the robot (solid arrow pointing east) at current position."""
@@ -271,17 +246,14 @@ class EnhancedSimulator:
         center_y = canvas_y + self.cell_size // 2
         
         if self.robot_image:
-            # Use triangle arrow image
+            # Use circular image
             self.robot_item = self.canvas.create_image(
                 center_x, center_y,
                 image=self.robot_image
             )
         else:
             # Use simple text triangle as fallback
-            self.robot_item = self.canvas.create_text(
-                center_x, center_y,
-                text="▶", font=("Arial", int(self.cell_size * 0.8)), fill="#0064c8"
-            )
+            self.robot_item = self.canvas.create_text(center_x, center_y, text="⚪", font=("Arial", int(self.cell_size * 0.8)), fill="#0064c8")
     
     def _update_status(self):
         """Update position and status labels."""
@@ -294,8 +266,8 @@ class EnhancedSimulator:
             else:
                 self.status_label.config(text="✅ Moving", fg="#059669")
     
-    def animate_move(self, old_pos: Position, new_pos: Position):
-        """Animate smooth movement from old position to new position."""
+    def animate_move_with_trail(self, old_pos: Position, new_pos: Position, move_delay: float = 1.5):
+        """Animate movement and draw trail when animation completes."""
         if not self.robot_item or self.animating:
             return
         
@@ -307,9 +279,12 @@ class EnhancedSimulator:
         new_x = new_pos.x * self.cell_size + self.cell_size // 2
         new_y = (self.robot.grid_height - 1 - new_pos.y) * self.cell_size + self.cell_size // 2
         
-        # Animation parameters
-        steps = 15
-        delay = 20  # milliseconds
+        # Animation parameters - match move_delay timing
+        steps = 30  # Keep smooth animation with 30 steps
+        total_animation_time = move_delay * 1000  # Convert to milliseconds
+        delay = int(total_animation_time / steps)  # Calculate delay to match move_delay
+        
+        print(f"🎬 Animation: {steps} steps, {delay}ms per step, total {total_animation_time}ms (move_delay={move_delay}s)")
         
         dx = (new_x - old_x) / steps
         dy = (new_y - old_y) / steps
@@ -325,31 +300,82 @@ class EnhancedSimulator:
                 if step < steps:
                     self.root.after(delay, lambda: animate_step(step + 1))
                 else:
+                    # Animation complete - ALWAYS draw the trail for this movement
+                    print(f"🔴 Animation complete, drawing trail: {old_pos} → {new_pos}")
+                    self._draw_trail_segment(old_pos, new_pos)
                     self.animating = False
-                    # Redraw complete scene after animation
-                    self._draw_complete_scene()
+                    # After finishing this animation, process next queued move if any
+                    if self._move_queue:
+                        next_old, next_new, next_delay = self._move_queue.pop(0)
+                        # Ensure we keep trail order consistent
+                        self.animate_move_with_trail(next_old, next_new, next_delay)
         
         animate_step(0)
+
+    def animate_move(self, old_pos: Position, new_pos: Position, move_delay: float = 1.5):
+        """Animate smooth movement from old position to new position."""
+        if not self.robot_item or self.animating:
+            return
+        
+        self.animating = True
+        
+        # Calculate canvas coordinates
+        old_x = old_pos.x * self.cell_size + self.cell_size // 2
+        old_y = (self.robot.grid_height - 1 - old_pos.y) * self.cell_size + self.cell_size // 2
+        new_x = new_pos.x * self.cell_size + self.cell_size // 2
+        new_y = (self.robot.grid_height - 1 - new_pos.y) * self.cell_size + self.cell_size // 2
+        
+        # Animation parameters - match move_delay timing
+        steps = 30  # Keep smooth animation with 30 steps
+        total_animation_time = move_delay * 1000  # Convert to milliseconds
+        delay = int(total_animation_time / steps)  # Calculate delay to match move_delay
+        
+        print(f"🎬 Animation: {steps} steps, {delay}ms per step, total {total_animation_time}ms (move_delay={move_delay}s)")
+        
+        dx = (new_x - old_x) / steps
+        dy = (new_y - old_y) / steps
+        
+        # Add a small initial delay so trail appears first, then robot follows smoothly
+        def start_animation():
+            def animate_step(step):
+                if step <= steps and self.robot_item:
+                    current_x = old_x + dx * step
+                    current_y = old_y + dy * step
+                    
+                    # Move robot item
+                    self.canvas.coords(self.robot_item, current_x, current_y)
+                    
+                    if step < steps:
+                        self.root.after(delay, lambda: animate_step(step + 1))
+                    else:
+                        self.animating = False
+            
+            animate_step(0)
+        
+        # Small delay (50ms) so trail draws first, then smooth animation follows
+        self.root.after(50, start_animation)
     
-    def robot_moved(self, old_pos: Position, new_pos: Position, success: bool):
+    def robot_moved(self, old_pos: Position, new_pos: Position, success: bool, move_delay: float = 1.5):
         """Called when robot attempts to move - handles animation and trail."""
         # Only proceed if canvas is initialized
         if not self.canvas:
             print("⚠️  GUI not yet initialized - skipping visual update")
             return
-            
+        
         if success:
-            # Add to movement trail
-            self.movement_trail.append(new_pos)
-            
-            # Draw the red trail line immediately (it will be under the robot)
-            self._draw_trail_segment(old_pos, new_pos)
-            
-            # Redraw the complete scene to ensure proper layering
-            self._draw_complete_scene()
-            
-            # Animate the movement
-            self.animate_move(old_pos, new_pos)
+            # Make defensive copies so future robot moves don't mutate stored references
+            old_copy = Position(old_pos.x, old_pos.y)
+            new_copy = Position(new_pos.x, new_pos.y)
+
+            # Record logical trail path (copy)
+            self.movement_trail.append(new_copy)
+
+            # If an animation is already running, queue this move
+            if self.animating:
+                self._move_queue.append((old_copy, new_copy, move_delay))
+            else:
+                # Start animation that will draw trail after completion
+                self.animate_move_with_trail(old_copy, new_copy, move_delay)
         else:
             # Robot hit wall - show popup and auto-reset
             self._handle_wall_collision()
@@ -457,6 +483,10 @@ class RobotProgram:
         self.robot = Robot(start_x, start_y)
         self.robot.grid_width = width
         self.robot.grid_height = height
+
+        # Defensive: if a wall already exists at the start (e.g., user added before init in custom flow)
+        if (start_x, start_y) in getattr(self.robot, 'walls', set()):
+            raise ValueError(f"Robot cannot start inside a wall at ({start_x}, {start_y})")
         
         # Create enhanced simulator
         self.simulator = EnhancedSimulator(self.robot)
